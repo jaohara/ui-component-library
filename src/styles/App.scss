@@ -1,0 +1,71 @@
+@use "./globals.scss" as g;
+@use "./screen.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=JetBrains+Mono:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  // TODO: maybe not the best place for this? It's taking priority in certain spots
+  //  like div.diagnostic-window-content
+  font-family: g.$body-font, sans-serif;
+
+  // is this also the best place for this?
+  color: g.$text-light-color;
+}
+
+html, body {
+  line-height: 1.8rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0rem;
+}
+
+/* pre, code {
+  font-family: g.$mono-font;
+  font-size: .9rem;
+  padding: .2rem .5rem;
+}
+
+code {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: g.$common-border-radius;
+}
+ */
+
+pre, code {
+  @include g.inline-mono-styling();
+}
+
+pre {
+  background-color: initial;
+}
+
+p {
+  margin: 0rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0rem;
+  margin-bottom: g.$common-margin;
+}
+
+.App {
+  background-color: g.$app-background-color;
+  display: flex;
+  // overflow-y: hidden;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+  // padding-top: g.$app-padding-top;
+  // padding: g.$app-body-padding;
+  width: 100vw;
+}
+
+/*
+.app-body {
+  overflow-x: hidden;
+}
+*/

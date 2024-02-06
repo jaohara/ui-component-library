@@ -1,0 +1,438 @@
+@use "sass:color";
+
+// ======================
+// common sizes/variables
+// ======================
+$app-body-padding: .5rem;
+$app-padding-top: 5.4rem;
+$board-screen-blur: 4px;
+$board-square-hover-stroke-width: 2px;
+$common-border-radius: 12px;
+$common-border-size: 2px;
+// $common-border-radius: 48px;
+// $common-box-shadow: 0px 4px 4px rgba(25,25,25,0.25);
+$common-box-shadow: 0px 12px 32px #00000033;
+$common-gap: 1rem;
+$common-padding: 1rem;
+$common-margin: 1rem;
+$puzzle-group-icon-margin: calc(1.15rem / 2);
+$content-container-max-width: 920px;
+$content-icon-size: 92px;
+$daily-streak-cell-size: 42px;
+$daily-streak-cell-border-radius: 6px;
+$full-screen-background-opacity: .6;
+$horizontal-divider-thickness: 2px;
+$input-box-max-width: calc($content-container-max-width / 2);
+$menu-body-gap: 2rem;
+$menu-header-icon-gap: 1rem;
+$menu-header-height: 72px;
+$menu-header-margin: 1.5rem;
+$menu-list-item-margin: 1rem;
+$menu-toggle-right-offset: calc(2 * $common-margin);
+$menu-toggle-top-offset: calc(1.6 * $common-margin);
+$message-icon-font-size: 10rem;
+$profile-menu-container-bottom-margin: 3rem;
+$section-header-font-size: 1.4rem;
+$ui-icon-size: 32px;
+
+// =====
+// fonts
+// =====
+$body-font: "Inter Tight";
+$mono-font: "JetBrains Mono";
+
+// ================
+// transition times
+// ================
+$ui-fast-transition: 100ms;
+$ui-slow-transition: 250ms;
+$background-color-transition: 1000ms;
+$board-reveal-transition: 1500ms;
+
+// =================
+// colors (specific)
+// =================
+$dark-gray-100: #626466;
+$dark-gray-200: #4c4e50;
+$dark-gray-300: #353638;
+$light-gray-100: #edeff2;
+$light-gray-200: #d8dbde;
+$light-gray-300: #c8cbce;
+$light-gray-400: #a4a9ae;
+$red-100: #ff6666;
+$red-200: #da4c4c;
+$red-300: #de3333;
+
+$rose: #f40076;
+$pumpkin: #ff8c42;
+$picton-blue: #00a7e1;
+$aquamarine: #42e2b8;
+
+// ====================
+// colors (temp shades)
+// ====================
+$cerulean: #37718E;
+$indigo-dye: #254E70;
+$silver-lake-blue: #4F86C6;
+// $slate-blue: #744FC6;
+$slate-blue: #3299d0;
+
+$square-gray: #35363866;
+
+// =============
+// colors (role)
+// =============
+
+/*
+  pulled from picross-parser:
+    These might not be necessary, but I'm pulling them out of this commented
+    block if I have a need for them
+
+// should be darker than $app-background-color; used for highlighting active areas
+// $button-hover-background-color: $light-gray-200;
+$diagnostic-button-font-hover-color: $dark-gray-300;
+$diagnostic-window-background-color: $dark-gray-300;
+$diagnostic-button-background-hover-color: $light-gray-100;
+$diagnostic-button-border-hover-color: $dark-gray-300;
+$diagnostic-window-button-hover-color: $dark-gray-200;
+$diagnostic-window-font-color: $light-gray-100;
+$opacity-slider-background-color: $light-gray-200;
+$opacity-slider-thumb-color: $dark-gray-300;
+$puzzle-panel-list-item-hover-background-color: $light-gray-300;
+$pane-background-color: $light-gray-100;
+$control-bar-background-color: $pane-background-color;
+$square-border-color: $square-gray;
+*/
+
+$app-background-color: $light-gray-200;
+$achievement-border-color: $light-gray-400;
+$achievement-unlocked-border-color: $light-gray-200;
+// $background-screen-background-color: linear-gradient($indigo-dye, $cerulean);
+$background-screen-background-color: linear-gradient($silver-lake-blue, $slate-blue);
+$board-number-background-color: $dark-gray-300;
+$board-screen-background-color: transparent;
+// $board-screen-section-temp-background-color: rgba(29, 29, 29, 0.4);
+$board-screen-section-temp-background-color: rgba(29, 29, 29, 0.15);
+$board-square-hover-color: $red-100;
+$border-highlight-color: $light-gray-300;
+// $button-background-color: $light-gray-200;
+$button-background-color: transparent;
+$button-border-color: $light-gray-400;
+$button-border-hover-color: $light-gray-100;
+// $button-hover-background-color: transparent;
+$button-hover-background-color: $button-border-hover-color;
+$button-hover-text-color: $dark-gray-300;
+$content-container-completed-color: $dark-gray-300;
+$content-container-completed-background-color: $light-gray-100;
+$content-container-completed-border-color: $light-gray-100;
+$daily-streak-cell-color: $light-gray-100;
+$daily-streak-cell-inverted-color: $dark-gray-100;
+$daily-streak-cell-empty-color: color.adjust($light-gray-400, $alpha: -.9);
+$daily-streak-cell-hover-color: $light-gray-100;
+$delete-unlocked-fill-color: $red-300;
+$delete-unlocked-font-color: $light-gray-100;
+$error-message-background-color: $red-100;
+$error-message-border-color: $red-200;
+$error-message-font-color: $error-message-border-color;
+$full-screen-panel-background-color: rgb(16, 16, 16);
+$horizontal-divider-color: $light-gray-200;
+$icon-completed-border-color: $light-gray-100;
+$login-container-border-color: $light-gray-100;
+$menu-section-background-color: $full-screen-panel-background-color;
+$menu-header-border-color: $light-gray-400;
+$puzzle-group-border-color: $light-gray-400;
+$puzzle-5-color: $aquamarine;
+$puzzle-10-color: $picton-blue;
+$puzzle-15-color: $pumpkin;
+$puzzle-20-color: $rose;
+$puzzle-group-border-hover-color: $light-gray-200;
+$text-light-color: $light-gray-100;
+$text-dark-color: $dark-gray-300;
+$text-input-active-border-color: $light-gray-100;
+$text-input-error-border-color: $red-100;
+
+
+// ============================
+// game board related variables
+// ============================
+
+// ======
+// colors
+// ======
+$board-square-base-color: $dark-gray-300;
+$board-shadow-color: rgba($dark-gray-300, .6);
+$board-shadow-completed-color: rgba($dark-gray-300, .3);
+$board-number-background-color: rgba($board-square-base-color, .8);
+$board-square-border-empty-color: rgba($board-square-base-color, .15);
+$board-square-border-filled-color: darken($light-gray-400, 45%);
+// $board-square-border-filled-color: red;
+$board-square-empty-color: #f0f0f0;
+$board-square-fill-color: darken($board-square-base-color, 8%);
+// $board-square-fill-color: $board-square-base-color;
+$board-square-guideline-color: #000;
+$board-square-hover-empty-color: #fff;
+$board-square-hover-filled-color: lighten($dark-gray-300, 4%);
+// $board-square-hover-border-color: rgba($dark-gray-100, .5);
+$board-square-hover-complete-border-color: rgba($dark-gray-100, .2);
+$board-square-hover-empty-border-color: $light-gray-300;
+$board-square-hover-filled-border-color: $dark-gray-100;
+$board-square-hover-empty-shadow-color: rgba($dark-gray-100, .2);
+$board-square-hover-filled-shadow-color: rgba($dark-gray-300, .6);
+// $board-square-x-color: rgba($board-square-base-color, .5);
+$board-square-x-color: lighten($board-square-base-color, 40%);
+
+// =====
+// sizes
+// =====
+$board-number-large-size: 48px; // TODO: Maybe make this larger?
+$board-number-size: 42px; // TODO: Maybe make this larger?
+$board-number-small-size: 28px; // TODO: Maybe make this larger?
+$board-number-margin: 4px;
+$board-square-border-width: 1px;
+$board-square-hover-border-width: 3px;
+$board-square-border-radius: 8px;
+$board-square-guideline-border-width: 2px;
+// $board-square-size: 28px; // TODO: Maybe make this larger?
+$board-square-large-size: 54px; // TODO: Maybe make this larger?
+$board-square-size: 48px; // TODO: Maybe make this larger?
+$board-square-small-size: 34px; 
+
+$board-square-x-width: 3px; // TODO: Maybe make this larger?
+
+// ====
+// misc
+// ====
+// for use with "text-shadow: val" and "filter: drop-shadow(val)"
+$board-screen-shadow-value: 0px 2px 5px $board-shadow-color;
+
+// ======================
+// responsive breakpoints
+// ======================
+$xs-breakpoint: 375px;
+$s-breakpoint: 768px;
+$m-breakpoint: 1280px;
+$l-breakpoint: 1920px;
+
+// ======
+// mixins
+// ======
+@mixin set-responsive-widths($xs-width, $s-width, $m-width, $l-width) {
+  //375px
+  width: $xs-width;
+
+  //768px
+  @media (min-width: $s-breakpoint) {
+    // margin: 0 auto;
+    width: $s-width;
+  }
+  //1280px
+  @media (min-width: $m-breakpoint) {
+    width: $m-width;
+  }
+  //1920px
+  @media (min-width: $l-breakpoint) {
+    width: $l-width;
+  }
+}
+
+@mixin standard-responsive-widths {
+  //375px
+  width: 100%;
+
+  //768px
+  @media (min-width: $s-breakpoint) {
+    // margin: 0 auto;
+    width: 768px;
+  }
+  //1280px
+  @media (min-width: $m-breakpoint) {
+    width: 1024px;
+  }
+  //1920px
+  @media (min-width: $l-breakpoint) {
+    width: 1440px;
+  }
+}
+
+@mixin section-header-styles {
+  font-size: $section-header-font-size;
+  margin-top: 0rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid $button-border-color;
+}
+
+@mixin common-border-styling ($border-color) {
+  border: 2px solid $border-color;
+  border-radius: $common-border-radius;
+}
+
+@mixin full-screen-panel-styling {
+  backdrop-filter: blur(20px);
+  background-color: rgba($full-screen-panel-background-color, $full-screen-background-opacity);
+  height: 100vh;
+  left: 0;
+  opacity: 0%;
+  position: fixed;
+  transition: opacity $ui-fast-transition;
+  top: 0;
+  width: 100vw;
+  z-index: -100;
+  // visibility: hidden;
+
+  &.active {
+    // visibility: visible;
+    opacity: 100%;
+    z-index: 10;
+  }
+}
+
+@mixin menu-body-panel-styling {
+  backdrop-filter: blur(20px);
+  background-color: rgba($full-screen-panel-background-color, $full-screen-background-opacity);
+  height: 100vh;
+  // left: 0;
+  opacity: 0%;
+  // position: fixed;
+  transition: opacity $ui-fast-transition;
+  top: 0;
+  // width: 100vw;
+  z-index: -100;
+  // visibility: hidden;
+
+  &.active {
+    // visibility: visible;
+    opacity: 100%;
+    z-index: 10;
+  }
+}
+
+@mixin inline-mono-styling {
+  // use with <code> and certain spans on the user profile
+  background-color: rgba(0,0,0,0.3);
+  border-radius: $common-border-radius;
+  font-family: $mono-font;
+  font-size: .9rem;
+  padding: .2rem .5rem;
+}
+
+@mixin glow-border ($border-color){
+  border-color: $border-color;
+  box-shadow: 0px 0px 25px color.adjust($border-color, $alpha: -.8);
+}
+
+@mixin glow-border-small ($border-color){
+  border-color: $border-color;
+  box-shadow: 0px 0px 10px color.adjust($border-color, $alpha: -.8);
+}
+
+// for use with Achievement and PuzzleGroup - a visual representation of a 
+//  content that is seperated from the main body content
+@mixin content-container-visual-styling ($border-color) {
+  // border: 2px solid $border-color;
+  // border-radius: $common-border-radius;
+  @include common-border-styling($border-color);
+  padding: $common-padding;
+  margin-bottom: calc($common-margin * 1.5);
+  transition: 
+    color $ui-slow-transition,
+    border-color $ui-slow-transition,
+    box-shadow $ui-slow-transition,
+    opacity $ui-slow-transition;
+  width: 100%;
+
+  h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-bottom: $common-padding;
+    // text-decoration: underline;
+  }
+
+  &.complete {
+    @include glow-border($content-container-completed-border-color);
+    // border-color: $content-container-completed-color;
+    // background-color: $content-container-completed-background-color;
+    // color: $content-container-completed-color;
+
+    h1 {
+      // color: $content-container-completed-color;
+    }
+  }
+}
+
+// for use on the wrappers for icons that appear within body content - things like
+//  .achievement-icon-wrapper and .puzzle-group-icon
+@mixin content-icon-wrapper-styling {
+  align-items: center;
+  border: 2px solid $achievement-border-color;
+  border-radius: $common-border-radius;
+  display: flex;
+  // TODO: Adjust this based on window size? Make smaller responsive sizes?
+  max-height: $content-icon-size;
+  max-width: $content-icon-size;
+  min-height: $content-icon-size;
+  min-width: $content-icon-size;
+  justify-content: center;
+
+  .complete & {
+    @include glow-border-small($icon-completed-border-color);
+    // border: 2px solid $icon-completed-border-color;
+    // border: 2px solid red;
+  }
+}
+
+// for use with button unhovered states, which might need to be explicitly supplied
+@mixin button-normal-state {
+  align-items: center;
+  background-color: $button-background-color;
+  border-radius: $common-border-radius;
+  border: $common-border-size solid;
+  border-color: $button-border-color;
+  box-shadow: 0px 0px 0px $button-border-color;
+  color: $text-light-color;
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 1;
+  padding: .6rem 1rem;
+  transition: 
+    background-color $ui-fast-transition, 
+    border-color $ui-fast-transition, 
+    box-shadow $ui-fast-transition, 
+    color $ui-fast-transition, 
+    opacity $ui-fast-transition;
+
+  .button-icon-wrapper svg path {
+    color: $text-light-color;
+  }
+}
+
+// for use with button hover states, which might not always be applied to just :hover
+@mixin button-hover-state {
+  @include glow-border($button-border-hover-color);
+  background-color: $button-hover-background-color;
+  color: $button-hover-text-color;
+  cursor: pointer;
+
+  .button-icon-wrapper svg path {
+    color: $button-hover-text-color;
+  }
+
+  &.delete-unlocked .button-icon-wrapper svg path {
+    color: $delete-unlocked-font-color;
+  }
+
+  &.delete-unlocked { 
+    background-color: $delete-unlocked-fill-color;
+    border-color: $delete-unlocked-fill-color;
+  }
+}
+
+// ===================
+// animation keyframes
+// ===================
+
+/*
+  When you import this global stylesheet, the keyframes exist in the global namespace and
+  don't need to be referred to with "g.[keyframe-name]", like the other mixins and variables.
+  It can be used just as "spin"
+*/

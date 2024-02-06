@@ -1,0 +1,18 @@
+@use "./globals.scss" as g;
+
+// universal rules for BackgroundScreen, BoardScreen, MenuScreen
+.screen {
+  height: 100vh;
+  padding: g.$common-padding;
+  position: fixed;
+  width: 100vw;
+
+  &.no-side-padding {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  &.no-bottom-padding {
+    padding-bottom: 0rem;
+  }
+}
