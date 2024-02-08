@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./MenuSection.scss";
+import "./Section.scss";
 
 const bgShadeTypes = ["dark", "normal", "light", "lighter", "darker", "transparent"];
 
@@ -36,7 +36,7 @@ const buildHexColorString = (hexColorString, opacityString = "normal") => {
   return `${color}${alpha}`
 };
 
-const MenuSection = ({
+const Section = ({
   // string to modify the shade of the bg
   bgShade = "normal",
   // hex color to tint background
@@ -58,8 +58,8 @@ const MenuSection = ({
       : verticalPaddingClassNames[1];
 
 
-  const menuSectionClassNames = `
-    menu-section
+  const SectionClassNames = `
+    section
     ${parsedBgShade}-shade
     ${verticalPaddingClassName}
     ${noPadding ? "no-padding" : ""}
@@ -77,7 +77,7 @@ const MenuSection = ({
 
   return ( 
     <div 
-      className={menuSectionClassNames}
+      className={SectionClassNames}
       style={style}
     >
       {children}
@@ -85,4 +85,4 @@ const MenuSection = ({
   );
 }
  
-export default MenuSection;
+export default Section;
