@@ -1,22 +1,22 @@
 import React from 'react';
 
-import "./MenuContent.scss";
+import "./Content.scss";
 
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import MenuContentGroup from '../MenuContentGroup/MenuContentGroup';
+import ContentGroup from '../ContentGroup/ContentGroup';
 
-const MenuContent = ({
+const Content = ({
   card = false,
   // center the content within the component
   centered = false,
   children,
   // the number of columns to use to display child content
   columns = 1,
-  // optional fixed-size for the first child in a MenuContentGroup
+  // optional fixed-size for the first child in a ContentGroup
   firstChildSize = null,
-  // whether the MenuContent width is fixed and centered (default) or full and dynamic
+  // whether the Content width is fixed and centered (default) or full and dynamic
   fullWidth = false,
-  // whether the MenuContent indicates its hover state
+  // whether the Content indicates its hover state
   hoverHighlight = false,
   // whether or not the data that the content depends on is loaded 
   loading = false,
@@ -29,8 +29,8 @@ const MenuContent = ({
   opaque = true,
   style,
 }) => {
-  const menuContentClassNames = `
-    menu-content
+  const ContentClassNames = `
+    content
     ${card ? "menu-card" : ""}
     ${centered ? "centered" : ""}
     ${fullWidth ? "full-width" : "fixed-width"}
@@ -61,19 +61,19 @@ const MenuContent = ({
     }
 
     return (
-      <MenuContentGroup
+      <ContentGroup
         columns={columns}
         firstChildSize={firstChildSize}
         style={style}
       >
         {children}
-      </MenuContentGroup>
+      </ContentGroup>
     );
   })();
 
   return (
     <div 
-      className={menuContentClassNames}
+      className={ContentClassNames}
       onClick={onClick}
       onMouseDown={onMouseDown}
       onMouseEnter={onMouseEnter}
@@ -84,4 +84,4 @@ const MenuContent = ({
   )
 };
  
-export default MenuContent;
+export default Content;

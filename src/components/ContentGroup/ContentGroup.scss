@@ -1,6 +1,6 @@
 @use "../../styles/globals.scss" as g;
 
-.menu-content-group {
+.content-group {
   // TODO: more work is probably needed, but let's start as simple as possible here
   display: flex;
   flex-wrap: wrap;
@@ -53,5 +53,5 @@
     min-width: inherit;
   }
 
-  // upper column limit is hardcoded in MenuComponent.jsx
+  // upper column limit is hardcoded in Component.jsx
 }
