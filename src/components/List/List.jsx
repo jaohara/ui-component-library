@@ -4,12 +4,30 @@ import styles from "./List.module.scss";
 
 // TODO: Implement this component
 
-const List = () => {
+const List = ({
+  label="",
+  ordered = false,
+  listItems = [],
+}) => {
+  const getListItems = () => listItems.map((item) => (
+    <li>{item}</li>
+  ));
+
   return (
     <div
       // style={styles.}
     >
-      <em>I'm a <strong>List</strong> and I need to be implemented.</em>
+      {
+        ordered ? (
+          <ol>
+            {getListItems()}
+          </ol>
+        ) : (
+          <ul>
+            {getListItems()}    
+          </ul>
+        )
+      }
     </div>
   );
 }
