@@ -22,7 +22,7 @@ const TextInput = ({
     if (onChange && typeof onChange === "function") {
       onChange(e);
     }
-  }
+  };
 
   return ( 
     <div className="text-input-wrapper">
