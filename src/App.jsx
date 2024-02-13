@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import './styles/variables.scss';
+import './styles/base.scss';
+
 import { 
   Badge,
   Button,

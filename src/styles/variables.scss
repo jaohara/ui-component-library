@@ -1,0 +1,36 @@
+:root {
+  // colors (specific)
+  $dark-gray-100: #626466;
+  $dark-gray-200: #4c4e50;
+  $dark-gray-300: #353638;
+  $dark-gray-400: #161717;
+  $light-gray-100: #edeff2;
+  $light-gray-200: #d8dbde;
+  $light-gray-300: #c8cbce;
+  $light-gray-400: #a4a9ae;
+  $red-100: #ff6666;
+  $red-200: #da4c4c;
+  $red-300: #de3333;
+
+  $rose: #f40076;
+  $pumpkin: #ff8c42;
+  $picton-blue: #00a7e1;
+  $aquamarine: #42e2b8;
+
+  // sizes
+  --app-body-padding: .5rem;
+  --app-padding-top: 5.4rem;
+
+  // responsive breakpoints
+  $xs-breakpoint: 375px;
+  $s-breakpoint: 768px;
+  $m-breakpoint: 1280px;
+  $l-breakpoint: 1920px;
+
+  // light theming color roles
+}
+
+.dark {
+  // dark theming color roles
+
+}

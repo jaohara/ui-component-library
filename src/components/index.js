@@ -1,4 +1,4 @@
-// TODO: Import individual components from directories and export
+import '../styles/variables.scss';
 
 import Badge from './Badge/Badge';
 import Button from './Button/Button';

@@ -1,0 +1,57 @@
+@use "./globals.scss" as g; // TODO: Remove import and change to use custom properties
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=JetBrains+Mono:wght@300&display=swap');
+
+/*
+  WHAT IS THIS?
+
+  This is the base stylesheet that specifies resets and default styling. All other 
+  CSS modules will be working off of these rules being assumed, and any additional
+  theming will start with this 
+*/
+
+
+* {
+  box-sizing: border-box;
+  font-family: g.$body-font, sans-serif;
+
+  // TODO: revise to use CSS custom properties from variables.scss
+  color: g.$text-light-color;
+}
+
+html, body {
+  line-height: 1.8rem;
+  max-width: 100%;
+  // overflow: hidden;
+}
+
+body {
+  margin: 0rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0rem;
+  margin-bottom: g.$common-margin;
+}
+
+
+pre, code {
+  @include g.inline-mono-styling();
+}
+
+pre {
+  background-color: initial;
+}
+
+p {
+  margin: 0rem;
+}
+
+.App {
+  // background-color: g.$app-background-color;
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  // overflow: hidden;
+  width: 100vw;
+}
