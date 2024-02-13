@@ -7,7 +7,7 @@ import styles from "./Image.module.scss";
 const Image = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Image</strong> and I need to be implemented.</em>
     </div>

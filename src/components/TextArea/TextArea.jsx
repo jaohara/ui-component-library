@@ -7,7 +7,7 @@ import styles from "./TextArea.module.scss";
 const TextArea = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>TextArea</strong> and I need to be implemented.</em>
     </div>

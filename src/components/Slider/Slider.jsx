@@ -7,7 +7,7 @@ import styles from "./Slider.module.scss";
 const Slider = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Slider</strong> and I need to be implemented.</em>
     </div>

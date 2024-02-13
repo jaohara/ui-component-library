@@ -7,7 +7,7 @@ import styles from "./Badge.module.scss";
 const Badge = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Badge</strong> and I need to be implemented.</em>
     </div>

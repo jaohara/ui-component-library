@@ -7,7 +7,7 @@ import styles from "./Notification.module.scss";
 const Notification = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Notification</strong> and I need to be implemented.</em>
     </div>

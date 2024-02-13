@@ -35,14 +35,38 @@ const listItems = selectListOptions;
 const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cupiditate quo, blanditiis deserunt expedita officiis provident repudiandae autem ipsa tempora voluptas aliquid quis ratione deleniti ducimus inventore minima. Impedit, doloremque."
 
 function App() {
+  const [ buttonClickCount, setButtonClickCount ] = useState(0);
+  const [ checkboxValue, setCheckboxValue ] = useState(false);
+  const [ darkModeToggleValue, setDarkModeToggleValue ] = useState(false);
+  const [ loadingSpinnerToggleValue, setLoadingSpinnerToggleValue ] = useState(false);
   const [ numberInputValue, setNumberInputValue ] = useState(0);
   const [ passwordInputValue, setPasswordInputValue ] = useState("");
-  const [ textInputValue, setTextInputValue ] = useState("");
   const [ selectInputValue, setSelectInputValue ] = useState("");
+  const [ textInputValue, setTextInputValue ] = useState("");
+  const [ toggleValue, setToggleValue ] = useState(false);
+
+  const managedValuesListObject = {
+    buttonClickCount,
+    checkboxValue,
+    numberInputValue,
+    passwordInputValue,
+    textInputValue,
+    selectInputValue,
+    toggleValue,
+  }
+
+  const incrementCounter = () => setButtonClickCount((current) => current + 1);
 
   return (
     <>
       <Section transparent>
+        <Content noPadding opaque={false}>
+          <ToggleSwitch
+            label='Dark Mode?'
+            setValue={setDarkModeToggleValue}
+            value={darkModeToggleValue}
+          />
+        </Content>
         <Content opaque={false}>
           <h1>Inputs</h1>
           <ContentGroup>
@@ -71,26 +95,34 @@ function App() {
 
               <NumberInput
                 label="Numeric Input"
-                value={numberInputValue}
                 setValue={setNumberInputValue}
+                value={numberInputValue}
               />
 
-              <ToggleSwitch />
+              <ToggleSwitch 
+                setValue={setToggleValue}
+                value={toggleValue}
+              />
 
               <Slider/>
 
               <RadioButtonGroup />
 
-              <Checkbox />
+              <Checkbox
+                label="Check the box?" 
+                setValue={setCheckboxValue}
+                value={checkboxValue}
+              />
 
               <p>
-                <Button>Button</Button>
+                <Button onClick={incrementCounter}>Button</Button>
               </p>
               <Button disabled>Button (disabled)</Button>
             </div>
 
             <div>
               <h2>Managed Values</h2>
+              <List listItems={managedValuesListObject}/>
             </div>
           </ContentGroup>
 
@@ -130,11 +162,20 @@ function App() {
           <ContentGroup>
             <div>
               <h3>Toggle Spinner</h3>
-              <ToggleSwitch />
+              <ToggleSwitch 
+                setValue={setLoadingSpinnerToggleValue}
+                value={loadingSpinnerToggleValue}
+              />
             </div>
             
             <div>
-              <LoadingSpinner />
+              {
+                loadingSpinnerToggleValue ? (
+                  loadingSpinnerData
+                ) : (  
+                  <LoadingSpinner />
+                )
+              }
             </div>
           </ContentGroup>
           
@@ -144,4 +185,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -30,7 +30,8 @@ const ContentGroup = ({
 
   const parsedChildren = React.Children.map(children, (child, index) => {
     if (!parsedFirstChildFlexStyle || index !== 0) {
-      console.log(`ContentGroup: ${firstChildSize}, ${parsedFirstChildFlexStyle}`);
+      // older debug logging from Celluloid
+      // console.log(`ContentGroup: ${firstChildSize}, ${parsedFirstChildFlexStyle}`);
       return child;
     }
 

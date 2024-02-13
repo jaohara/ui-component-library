@@ -4,12 +4,32 @@ import styles from "./ToggleSwitch.module.scss";
 
 // TODO: Implement this component
 
-const ToggleSwitch = () => {
+const ToggleSwitch = ({
+  setValue = () => {},
+  label = "",
+  value,
+}) => {
+  const handleClick = (e) => {
+    if (setValue && typeof setValue === "function") {
+      setValue((oldValue) => !oldValue);
+    }
+  };
+
   return (
-    <div
-      // style={styles.}
-    >
-      <em>I'm a <strong>ToggleSwitch</strong> and I need to be implemented.</em>
+    <div className={styles.wrapper}>
+      {
+        label && (<label>{label}</label>)
+      }
+      {/* Temp implementation */}
+      <button
+        aria-checked={value}
+        onClick={(e) => handleClick(e)}
+        role='switch'
+      >
+        {
+          value ? ("ON") : ("OFF")
+        }
+      </button>
     </div>
   );
 }

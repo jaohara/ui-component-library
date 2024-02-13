@@ -7,7 +7,7 @@ import styles from "./CodeBlock.module.scss";
 const CodeBlock = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>CodeBlock</strong> and I need to be implemented.</em>
     </div>
