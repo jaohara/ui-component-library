@@ -10,12 +10,18 @@
   theming will start with this 
 */
 
+:root {
+  --body-font: "Inter Tight";
+  --mono-font: "JetBrains Mono";
+}
 
 * {
   box-sizing: border-box;
-  font-family: g.$body-font, sans-serif;
+  // font-family: g.$body-font, sans-serif;
+  font-family: var(--body-font), sans-serif;
 
   // TODO: revise to use CSS custom properties from variables.scss
+  color: g.$text-light-color;
   color: g.$text-light-color;
 }
 
