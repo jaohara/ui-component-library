@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import "./Select.scss";
+
+const isFunction = (input) => input && typeof input === "function";
 
 const Select = ({
   disabled = false,
@@ -15,8 +17,14 @@ const Select = ({
   `;
 
   const handleSelect = (e) => {
-    setValue(e.target.value);
+    isFunction(setValue) && setValue(e.target.value);
   };
+
+  useEffect(() => {
+    if (options && Array.isArray(options) && options.length > 0) {
+      isFunction(setValue) && setValue(options[0]);
+    }
+  }, [])
 
   return (
     <div className="select-wrapper">

@@ -7,7 +7,7 @@ import styles from "./Card.module.scss";
 const Card = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Card</strong> and I need to be implemented.</em>
     </div>

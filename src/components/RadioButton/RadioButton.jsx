@@ -7,7 +7,7 @@ import styles from "./RadioButton.module.scss";
 const RadioButton = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>RadioButton</strong> and I need to be implemented.</em>
     </div>

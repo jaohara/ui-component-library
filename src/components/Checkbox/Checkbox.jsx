@@ -4,12 +4,36 @@ import styles from "./Checkbox.module.scss";
 
 // TODO: Implement this component
 
-const Checkbox = () => {
+const Checkbox = ({
+  key,
+  label = "",
+  setValue = () => {},
+  value,
+}) => {
+  const handleCheckboxChange = (e) => {
+    if (setValue && typeof setValue === "function") {
+      setValue(e.target.checked);
+    }
+  }
+
+  const checkboxJSX = (
+    <input 
+      checked={value}
+      onChange={(e) => handleCheckboxChange(e)}
+      type="checkbox" 
+    />
+  );
+
+
   return (
-    <div
-      // style={styles.}
-    >
-      <em>I'm a <strong>Checkbox</strong> and I need to be implemented.</em>
+    <div className={styles.wrapper} key={key}>
+      {
+        label ? (
+          <label>{checkboxJSX}{label}</label>
+        ) : (
+          {checkboxJSX}
+        )
+      }
     </div>
   );
 }

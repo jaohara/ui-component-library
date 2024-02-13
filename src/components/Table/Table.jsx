@@ -7,7 +7,7 @@ import styles from "./Table.module.scss";
 const Table = () => {
   return (
     <div
-      // style={styles.}
+      // className={styles.}
     >
       <em>I'm a <strong>Table</strong> and I need to be implemented.</em>
     </div>
