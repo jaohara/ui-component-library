@@ -27,7 +27,7 @@ const Select = ({
   }, [])
 
   return (
-    <div className="select-wrapper">
+    <div className="select-wrapper input-wrapper">
       {
         label && (<label className="select-lable">{label}</label>)
       }

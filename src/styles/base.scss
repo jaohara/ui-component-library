@@ -40,9 +40,29 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: g.$common-margin;
 }
 
+label:not(.checkbox-label, .radio-button-label) {
+  font-size: var(--label-font-size);
+  font-weight: bold;
+  line-height: var(--label-font-size);
+  margin-bottom: .25rem;
+  padding-left: .2rem;
+}
+
+// used to wrap inputs with their labels
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--common-margin);
+  max-width: var(--input-box-max-width);
+}
 
 pre, code {
-  @include g.inline-mono-styling();
+  // @include g.inline-mono-styling();
+  background-color: var(--code-background-color);
+  border-radius: var(--common-border-radius);
+  font-family: var(--mono-font);
+  font-size: .9rem;
+  padding: .2rem .5rem;
 }
 
 pre {

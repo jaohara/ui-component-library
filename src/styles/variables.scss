@@ -21,6 +21,24 @@
   // sizes
   --app-body-padding: .5rem;
   --app-padding-top: 5.4rem;
+  --common-border-radius: 8px;
+  --common-border-size: 1px;
+  --common-box-shadow: 0px 12px 32px var(--light-box-shadow-color);
+  --common-gap: 1rem;
+  --common-padding: 1rem;
+  --common-margin: 1rem;
+  --content-container-max-width: 920px; // TODO: what is this for?
+  --content-icon-size: 92px;
+  --full-screen-background-opacity: .6;
+  --horizontal-divider-thickness: 2px;
+  --input-box-max-width: calc(var(--content-container-max-width) / 2);
+  --input-font-size: 1.2rem;
+  --input-padding: .6rem;
+  --label-font-size: .8rem;
+  --menu-list-item-margin: 1rem;
+  --section-header-font-size: 1.4rem;
+  --text-size: 1.2rem;
+  --ui-icon-size: 32px;
 
   // transition times
   --ui-fast-transition: 100ms;
@@ -34,9 +52,31 @@
   --l-breakpoint: 1920px;
 
   // light/default theming color roles
+  --border-color: var(--light-gray-400);
+  --border-highlight-color: var(--light-gray-300);
+  --button-background-color: transparent; // TODO: Revisit this color
+  --button-border-color: var(--light-gray-400);
+  --button-border-highlight-color: var(--light-gray-100);
+  --button-hover-background-color: var(--light-gray-100);
+  --button-hover-text-color: var(--dark-gray-300);
+  --code-background-color: var(--light-gray-200);
+  --delete-unlocked-fill-color: var(--red-300);
+  --delete-unlocked-text-color: var(--light-gray-100);
+  --error-message-background-color: var(--red-200);
+  --error-message-border-color: var(--red-200);
+  --error-message-text-color: var(--red-200);
+  --full-screen-panel-background-color: var(--dark-gray-400);
+  --horizontal-divider-color: var(--light-gray-200);
+  --icon-completed-border-color: var(--light-gray-100);
+  --input-background-color: transparent; // TODO: revisit this color
+  --primary-color: var(--picton-blue); // TODO: add more shades of this color
+  --section-background-color: var(--dark-gray-400);
+  --text-color: var(--dark-gray-400);
+  --text-input-active-border-color: var(--light-gray-100);
+  --text-input-error-border-color: var(--red-100);
 }
 
 .dark {
   // dark theming color roles
-
+  --text-color: var(--light-gray-100);
 }

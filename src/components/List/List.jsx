@@ -37,11 +37,11 @@ const List = ({
     >
       {
         ordered ? (
-          <ol>
+          <ol className={styles.list}>
             {getListItems()}
           </ol>
         ) : (
-          <ul>
+          <ul className={styles.list}>
             {getListItems()}    
           </ul>
         )

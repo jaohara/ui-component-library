@@ -1,0 +1,12 @@
+.textarea-wrapper {
+  width: 100%;
+
+  textarea {
+    border-radius: var(--common-border-radius);
+    border: var(--common-border-size) solid var(--border-color);
+    font-size: var(--text-size);
+    min-height: 8rem;
+    padding: var(--input-padding);
+    width: 100%;
+  }
+}

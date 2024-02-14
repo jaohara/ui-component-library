@@ -25,9 +25,9 @@ const TextInput = ({
   };
 
   return ( 
-    <div className="text-input-wrapper">
+    <div className="text-input-wrapper input-wrapper">
       {
-        label && (<label className="text-input-label">{label}</label>)
+        label && (<label>{label}</label>)
       }
       <input 
         className={getClassNames()}

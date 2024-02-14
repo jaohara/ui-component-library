@@ -27,7 +27,7 @@ const NumberInput = ({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`input-wrapper ${styles.wrapper}`}>
       {
         label && (<label>{label}</label>)
       }

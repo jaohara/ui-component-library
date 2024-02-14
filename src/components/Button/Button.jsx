@@ -14,14 +14,11 @@ import {
   TbLoader,
   TbLogin,
   TbLogout,
-  // TbMedal, // alternate for complete?
   TbMenu2,
   TbNews,
   TbPlayerPauseFilled,
   TbPlayerPlayFilled,
   TbPuzzle,
-  // this looks like a swastika. Don't use this.
-  // TbPuzzle2,
   TbPuzzleOff,
   TbQuestionMark,
   // TbQuestionCircle,
@@ -36,7 +33,9 @@ import {
   TbX,
 } from "react-icons/tb";
 
-import './Button.scss';
+// import './Button.scss';
+
+import styles from './Button.module.scss';
 
 // forwardRef allows refs to be passed in to custom components. note that it is passed to the
 //  component outside of the prop object
@@ -96,10 +95,10 @@ const Button = React.forwardRef(({
     return (
       <div 
         className={`
-          button-icon-wrapper
-          ${!children ? "no-margin" : ""}
-          ${iconType === "waiting" ? "waiting" : ""}
-          ${loading ? "loading" : ""}
+          ${styles["button-icon-wrapper"]}
+          ${!children ? styles["no-margin"] : ""}
+          ${iconType === "waiting" ? styles["waiting"] : ""}
+          ${loading ? styles["loading"] : ""}
       `}>
         {
           !loading ? buttonIcons[iconType] : buttonIcons["waiting"]
@@ -111,7 +110,8 @@ const Button = React.forwardRef(({
   return (
     <button 
       disabled={disabled}
-      className={`${className} app-button`}
+      className={`${className} ${styles["app-button"]}`}
+      // className={`${className} .app-button`}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
