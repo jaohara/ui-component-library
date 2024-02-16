@@ -1,12 +1,13 @@
 import React from 'react';
 
-import "./Content.scss";
+// import "./Content.scss";
+
+import styles from "./Content.module.scss";
 
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import ContentGroup from '../ContentGroup/ContentGroup';
 
 const Content = ({
-  card = false,
   // center the content within the component
   centered = false,
   children,
@@ -20,6 +21,8 @@ const Content = ({
   hoverHighlight = false,
   // whether or not the data that the content depends on is loaded 
   loading = false,
+  noFlex = false,
+  noMargin = false,
   // whether or not to use internal padding
   noPadding = false,
   onClick,
@@ -28,28 +31,22 @@ const Content = ({
   // whether the bg is opaque (replace with strings for degrees of opacity?)
   opaque = true,
   style,
+  rightAligned = false,
+  verticallyCentered = false,
 }) => {
   const ContentClassNames = `
-    content
-    ${card ? "menu-card" : ""}
-    ${centered ? "centered" : ""}
-    ${fullWidth ? "full-width" : "fixed-width"}
-    ${hoverHighlight ? "hover-highlight" : ""}
-    ${opaque ? "opaque-bg" : "transparent-bg" }
-    ${firstChildSize !== null ? "fixed-first-child" : ""}
-    ${noPadding ? "no-padding" : ""}
+    ${styles.content}
+    ${centered ? styles["centered"] : ""}
+    ${firstChildSize !== null ? styles["fixed-first-child"] : ""}
+    ${fullWidth ? styles["full-width"] : styles["fixed-width"]}
+    ${hoverHighlight ? styles["hover-highlight"] : ""}
+    ${loading ? styles["loading"] : ""}
+    ${noFlex ? styles["no-flex"] : ""}
+    ${noPadding ? styles["no-padding"] : ""}
+    ${opaque ? styles["opaque-bg"] : styles["transparent-bg"] }
+    ${rightAligned ? styles["right-aligned"] : ""}
+    ${verticallyCentered ? styles["vertically-centered"] : ""}
   `;
-
-
-
-
-  
-  // TODO: code out "hover-highlight" class in the stylesheet
-
-  
-  
-
-  
   
   const content = (() => {
     if (loading) {

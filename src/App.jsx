@@ -63,17 +63,29 @@ function App() {
   return (
     <>
       <Section transparent>
-        <Content noPadding opaque={false}>
-          <ToggleSwitch
-            label='Dark Mode?'
-            setValue={setDarkModeToggleValue}
-            value={darkModeToggleValue}
-          />
-        </Content>
+        <ContentGroup opaque={false}>
+          <Content
+            noPadding
+            opaque={false}
+            verticallyCentered
+          >
+            <h1>Inertia UI</h1>
+          </Content>
+          <Content 
+            rightAligned
+            verticallyCentered
+          >
+            <ToggleSwitch
+              label='Dark Mode?'
+              setValue={setDarkModeToggleValue}
+              value={darkModeToggleValue}
+            />
+          </Content>
+        </ContentGroup>
         <Content opaque={false}>
           <h1>Inputs</h1>
           <ContentGroup>
-            <div>
+            <Content>
               <h2>form Elements</h2>
 
               <TextInput
@@ -117,27 +129,33 @@ function App() {
                 value={checkboxValue}
               />
 
-              <p>
+              <Content noFlex noPadding noMargin>
                 <Button onClick={incrementCounter}>Button</Button>
-              </p>
-              <Button disabled>Button (disabled)</Button>
-            </div>
+                <Button disabled>Button (disabled)</Button>
+              </Content>
+            </Content>
 
-            <div>
+            <Content>
               <h2>Managed Values</h2>
               <List listItems={managedValuesListObject}/>
-            </div>
+            </Content>
           </ContentGroup>
 
-          <h2>Text Area</h2>
-          <TextArea />
+          <Content>
+            <h2>Text Area</h2>
+            <TextArea />
+          </Content>
 
           <HorizontalDivider addTopMargin/>
 
           <h1>Displaying Data</h1>
 
           <h2>Badges</h2>
-          <Badge></Badge>
+          <Content noFlex>
+            <Badge>Test Badge</Badge>
+            <Badge>Another Badge</Badge>
+            <Badge>Maybe a Pill?</Badge>
+          </Content>
 
           <h2>Cards</h2>
           <Card></Card>
@@ -163,23 +181,24 @@ function App() {
 
           <h2>Loading Spinner</h2>
           <ContentGroup>
-            <div>
+            <Content>
               <h3>Toggle Spinner</h3>
               <ToggleSwitch 
                 setValue={setLoadingSpinnerToggleValue}
                 value={loadingSpinnerToggleValue}
               />
-            </div>
+            </Content>
             
-            <div>
-              {
+            <Content loading={loadingSpinnerToggleValue}>
+              {loadingSpinnerData}
+              {/* {
                 loadingSpinnerToggleValue ? (
                   loadingSpinnerData
                 ) : (  
                   <LoadingSpinner />
                 )
-              }
-            </div>
+              } */}
+            </Content>
           </ContentGroup>
           
         </Content>

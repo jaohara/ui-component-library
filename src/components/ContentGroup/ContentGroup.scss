@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   gap: g.$common-gap;
   justify-content: flex-start;
+  margin-bottom: var(--content-group-margin);
 
   & > * {
     // make all children have the same size - grow and shrink at the same rate

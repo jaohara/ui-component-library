@@ -9,7 +9,7 @@ $dark-opacity: .65;
 $darker-opacity: .8;
 
 .section {
-  $vertical-padding: calc(2 * g.$common-padding);
+  $vertical-padding: calc(2 * var(--common-padding));
 
   align-items: center;
   background-color: rgba(g.$section-background-color, $normal-opacity);

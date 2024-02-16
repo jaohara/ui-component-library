@@ -2,11 +2,21 @@
   width: 100%;
 
   textarea {
+    background-color: var(--input-background-color);
     border-radius: var(--common-border-radius);
     border: var(--common-border-size) solid var(--border-color);
     font-size: var(--text-size);
     min-height: 8rem;
+    outline: none;
     padding: var(--input-padding);
     width: 100%;
+
+    &:focus {
+      border-color: var(--input-focus-border-color);
+    }
+  
+    &.error {
+      border-color: var(--input-error-border-color);
+    }
   }
 }

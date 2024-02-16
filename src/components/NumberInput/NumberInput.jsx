@@ -14,12 +14,17 @@ const NumberInput = ({
   warning = false,
 }) => {
   const inputClassNames = `
+    common-input
     ${error ? "error" : ""}
     ${warning ? "warning" : ""}
   `;
 
   const handleInput = (e) => {
-    setValue(e.target.value);
+    const valueIsNumber = !isNaN(parseInt(e.target.value));
+
+    if (setValue && typeof setValue === "function" && valueIsNumber) {
+      setValue(e.target.value);
+    }
 
     if (onChange && typeof onChange === "function") {
       onChange(e);

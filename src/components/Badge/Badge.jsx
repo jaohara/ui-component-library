@@ -2,16 +2,15 @@ import React from 'react';
 
 import styles from "./Badge.module.scss";
 
-// TODO: Implement this component
+const Badge = ({
+  children,
+  text = "Badge",
+}) => {
+  const badgeContent = children ? children : text;
 
-const Badge = () => {
   return (
-    <div
-      // className={styles.}
-    >
-      <em>I'm a <strong>Badge</strong> and I need to be implemented.</em>
-    </div>
+    <span className={styles.badge}>{badgeContent}</span>
   );
-}
+};
  
 export default Badge;

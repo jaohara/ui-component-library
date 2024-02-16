@@ -110,7 +110,7 @@ const Button = React.forwardRef(({
   return (
     <button 
       disabled={disabled}
-      className={`${className} ${styles["app-button"]}`}
+      className={`${className} ${styles["app-button"]} common-button`}
       // className={`${className} .app-button`}
       onClick={onClick}
       onMouseEnter={onMouseEnter}

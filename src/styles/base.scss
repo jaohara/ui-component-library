@@ -56,6 +56,30 @@ label:not(.checkbox-label, .radio-button-label) {
   max-width: var(--input-box-max-width);
 }
 
+.common-button {
+  margin-bottom: var(--common-margin);
+}
+
+.common-input {
+  // rules shared by most inputs (TextInput, NumberInput, Select, etc.)
+  background-color: var(--input-background-color);
+  border: var(--common-border-size) solid var(--border-color);
+  border-color: var(--border-color);
+  border-radius: var(--common-border-radius);
+  font-size: var(--input-font-size);
+  outline: none;
+  padding: var(--input-padding);
+  transition: border-color var(--ui-fast-transition);
+
+  &:focus {
+    border-color: var(--input-focus-border-color);
+  }
+
+  &.error {
+    border-color: var(--input-error-border-color);
+  }
+}
+
 pre, code {
   // @include g.inline-mono-styling();
   background-color: var(--code-background-color);

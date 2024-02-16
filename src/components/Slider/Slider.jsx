@@ -4,13 +4,21 @@ import styles from "./Slider.module.scss";
 
 // TODO: Implement this component
 
-const Slider = () => {
+const Slider = ({
+  max = 10,
+  min = 0,
+  step = 1,
+  width,
+}) => {
   return (
-    <div
-      // className={styles.}
-    >
-      <em>I'm a <strong>Slider</strong> and I need to be implemented.</em>
-    </div>
+    <input
+      className={styles.slider} 
+      max={max}
+      min={min}
+      step={step}
+      style={width ? { width } : null}
+      type="range"
+    />
   );
 }
  

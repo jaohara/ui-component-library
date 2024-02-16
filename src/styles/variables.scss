@@ -12,6 +12,11 @@
   --red-100: #ff6666;
   --red-200: #da4c4c;
   --red-300: #de3333;
+  --blue-100: #66caed;
+  --blue-200: #33b9e7;
+  --blue-300: #00a7e1;
+  --blue-400: #0086b4;
+  --blue-500: #006487;
 
   --rose: #f40076;
   --pumpkin: #ff8c42;
@@ -21,7 +26,14 @@
   // sizes
   --app-body-padding: .5rem;
   --app-padding-top: 5.4rem;
-  --common-border-radius: 8px;
+  --badge-border-radius: 2rem;
+  --badge-margin-right: .5rem;
+  --badge-padding: .65rem .85rem;
+  --button-font-size: 1.2rem;
+  --button-padding-vertical: 1rem;
+  --button-padding-horizontal: 1.5rem;
+  // --common-border-radius: 8px;
+  --common-border-radius: 12px;
   --common-border-size: 1px;
   --common-box-shadow: 0px 12px 32px var(--light-box-shadow-color);
   --common-gap: 1rem;
@@ -29,14 +41,20 @@
   --common-margin: 1rem;
   --content-container-max-width: 920px; // TODO: what is this for?
   --content-icon-size: 92px;
+  --content-padding: calc(var(--common-padding) * 2);
+  --content-group-margin: var(--common-margin);
   --full-screen-background-opacity: .6;
   --horizontal-divider-thickness: 2px;
   --input-box-max-width: calc(var(--content-container-max-width) / 2);
   --input-font-size: 1.2rem;
   --input-padding: .6rem;
   --label-font-size: .8rem;
+  --large-icon-size: 48px;
   --menu-list-item-margin: 1rem;
   --section-header-font-size: 1.4rem;
+  --slider-thumb-size: 1.2rem;
+  --slider-thumb-webkit-offset: -4px;
+  --slider-track-height: .8rem;
   --text-size: 1.2rem;
   --ui-icon-size: 32px;
 
@@ -52,14 +70,20 @@
   --l-breakpoint: 1920px;
 
   // light/default theming color roles
+  --badge-text-color: var(--light-gray-100);
   --border-color: var(--light-gray-400);
   --border-highlight-color: var(--light-gray-300);
-  --button-background-color: transparent; // TODO: Revisit this color
-  --button-border-color: var(--light-gray-400);
+  // --button-background-color: transparent; // TODO: Revisit this color
+  --button-background-color: var(--primary-color); 
+  // --button-border-color: var(--light-gray-400);
+  --button-border-color: var(--primary-color);
   --button-border-highlight-color: var(--light-gray-100);
-  --button-hover-background-color: var(--light-gray-100);
-  --button-hover-text-color: var(--dark-gray-300);
+  --button-border-color: var(--button-hover-background-color);
+  --button-hover-background-color: var(--blue-200);
+  --button-hover-text-color: var(--light-gray-100);
+  --button-text-color: var(--light-gray-100);
   --code-background-color: var(--light-gray-200);
+  --content-background-color: var(--light-gray-100);
   --delete-unlocked-fill-color: var(--red-300);
   --delete-unlocked-text-color: var(--light-gray-100);
   --error-message-background-color: var(--red-200);
@@ -68,12 +92,25 @@
   --full-screen-panel-background-color: var(--dark-gray-400);
   --horizontal-divider-color: var(--light-gray-200);
   --icon-completed-border-color: var(--light-gray-100);
-  --input-background-color: transparent; // TODO: revisit this color
-  --primary-color: var(--picton-blue); // TODO: add more shades of this color
-  --section-background-color: var(--dark-gray-400);
+  // --input-focus-border-color: var(--light-gray-100);
+  --input-focus-border-color: var(--primary-color);
+  // --input-background-color: transparent; // TODO: revisit this color
+  --input-background-color: var(--light-gray-100); 
+  --input-background-color: white; 
+  --input-error-border-color: var(--red-100);
+  --primary-color-100: var(--blue-100);
+  --primary-color-200: var(--blue-200);
+  --primary-color-300: var(--blue-300);
+  --primary-color-400: var(--blue-400);
+  --primary-color-500: var(--blue-500);
+  --primary-color: var(--blue-300);
+  --section-background-color: var(--light-gray-400);
+  --slider-track-empty-color: var(--light-gray-300);
+  --slider-track-filled-color: var(--primary-color);
+  // --slider-thumb-color: var(--dark-gray-100);
+  --slider-thumb-color: var(--primary-color);
   --text-color: var(--dark-gray-400);
-  --text-input-active-border-color: var(--light-gray-100);
-  --text-input-error-border-color: var(--red-100);
+  --toggle-switch-text-color: var(--light-gray-100);
 }
 
 .dark {

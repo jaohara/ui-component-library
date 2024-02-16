@@ -3,6 +3,7 @@ import React from 'react';
 import "./TextInput.scss";
 
 const TextInput = ({
+  email = false,
   error = false,
   label,
   onChange,
@@ -24,6 +25,12 @@ const TextInput = ({
     }
   };
 
+  const inputType = (() => {
+    if (password) return "password";
+    if (email) return "email";
+    return "text";
+  })();
+
   return ( 
     <div className="text-input-wrapper input-wrapper">
       {
@@ -34,7 +41,7 @@ const TextInput = ({
         // onChange={e => setValue(e.target.value)}
         onChange={e => handleInput(e)}
         placeholder={password ? "" : placeholder}
-        type={password ? "password" : "text"}
+        type={inputType}
         value={value}
       />
     </div>

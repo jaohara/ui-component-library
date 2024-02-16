@@ -11,12 +11,13 @@
   border: var(--common-border-size) solid;
   border-color: var(--button-border-color);
   box-shadow: 0px 0px 0px var(--button-border-color);
-  color: var(--text-color);
+  color: var(--button-text-color);
   display: flex;
-  font-size: 1rem;
+  font-size: var(--button-font-size);
   font-weight: bold;
   opacity: 1;
-  padding: .6rem 1rem;
+  // padding: .6rem 1rem;
+  padding: var(--button-padding-vertical) var(--button-padding-horizontal);
   transition: 
     background-color var(--ui-fast-transition), 
     border-color var(--ui-fast-transition), 
