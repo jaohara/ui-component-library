@@ -4,7 +4,9 @@
   --dark-gray-200: #4c4e50;
   --dark-gray-300: #353638;
   --dark-gray-400: #161717;
+  --dark-gray-500: #080808;
   --light-box-shadow-color: #00000033;
+  --light-gray-000: #fefefe;
   --light-gray-100: #edeff2;
   --light-gray-200: #d8dbde;
   --light-gray-300: #c8cbce;
@@ -98,13 +100,15 @@
   --input-background-color: var(--light-gray-100); 
   --input-background-color: white; 
   --input-error-border-color: var(--red-100);
+  --nav-bar-background-color: var(--light-gray-200);
+  --nav-bar-text-color: var(--text-color);
   --primary-color-100: var(--blue-100);
   --primary-color-200: var(--blue-200);
   --primary-color-300: var(--blue-300);
   --primary-color-400: var(--blue-400);
   --primary-color-500: var(--blue-500);
   --primary-color: var(--blue-300);
-  --section-background-color: var(--light-gray-400);
+  --section-background-color: var(--light-gray-000);
   --slider-track-empty-color: var(--light-gray-300);
   --slider-track-filled-color: var(--primary-color);
   // --slider-thumb-color: var(--dark-gray-100);
@@ -115,5 +119,9 @@
 
 .dark {
   // dark theming color roles
+  --border-color: var(--dark-gray-200);
+  --content-background-color: var(--dark-gray-300);
+  --input-background-color: var(--dark-gray-200);
+  --section-background-color: var(--dark-gray-500);
   --text-color: var(--light-gray-100);
 }

@@ -18,11 +18,9 @@
 * {
   box-sizing: border-box;
   // font-family: g.$body-font, sans-serif;
+  color: var(--text-color);
   font-family: var(--body-font), sans-serif;
 
-  // TODO: revise to use CSS custom properties from variables.scss
-  color: g.$text-light-color;
-  color: g.$text-light-color;
 }
 
 html, body {
@@ -58,6 +56,8 @@ label:not(.checkbox-label, .radio-button-label) {
 
 .common-button {
   margin-bottom: var(--common-margin);
+  background-color: var(--button-background-color);
+  border-radius: var(--common-border-radius);
 }
 
 .common-input {

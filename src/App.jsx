@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, {
+  useContext, 
+  useState 
+} from 'react';
 
 import './styles/variables.scss';
 import './styles/base.scss';
+
+import { 
+  DarkModeWrapper,
+  ThemeContext 
+} from './contexts/ThemeContext';
 
 import { 
   Badge,
@@ -16,6 +24,7 @@ import {
   List,
   LoadingSpinner,
   LogPane,
+  NavBar,
   Notification,
   NotificationPane,
   NumberInput,
@@ -40,7 +49,6 @@ const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing e
 function App() {
   const [ buttonClickCount, setButtonClickCount ] = useState(0);
   const [ checkboxValue, setCheckboxValue ] = useState(false);
-  const [ darkModeToggleValue, setDarkModeToggleValue ] = useState(false);
   const [ loadingSpinnerToggleValue, setLoadingSpinnerToggleValue ] = useState(false);
   const [ numberInputValue, setNumberInputValue ] = useState(0);
   const [ passwordInputValue, setPasswordInputValue ] = useState("");
@@ -58,27 +66,38 @@ function App() {
     toggleValue,
   }
 
+  const { 
+    theme,
+    toggleTheme,
+  } = useContext(ThemeContext);
+
+  const isDarkMode = theme === 'dark';
+
   const incrementCounter = () => setButtonClickCount((current) => current + 1);
 
   return (
-    <>
-      <Section transparent>
+    <DarkModeWrapper>
+      <Section 
+        // transparent
+      >
         <ContentGroup opaque={false}>
           <Content
-            noPadding
             opaque={false}
             verticallyCentered
           >
             <h1>Inertia UI</h1>
           </Content>
           <Content 
+            opaque={false}
             rightAligned
             verticallyCentered
           >
             <ToggleSwitch
               label='Dark Mode?'
-              setValue={setDarkModeToggleValue}
-              value={darkModeToggleValue}
+              onClick={toggleTheme}
+              // setValue={setDarkModeToggleValue}
+              // value={darkModeToggleValue}
+              value={isDarkMode}
             />
           </Content>
         </ContentGroup>
@@ -203,7 +222,7 @@ function App() {
           
         </Content>
       </Section>
-    </>
+    </DarkModeWrapper>
   )
 }
 

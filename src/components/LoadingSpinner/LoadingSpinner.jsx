@@ -22,6 +22,8 @@ const FALLBACK_ICON_SIZE = "16px";
 const LoadingSpinner = () => {
   const [ iconSize, setIconSize ] = useState();
 
+  // TODO: Move the code that pulls and stores the custom property for icon 
+  //  size into ThemeContext
   useEffect(() => {
     const currentIconSize = getCSSCustomProperty(ICON_SIZE_CUSTOM_PROPERTY);
     console.log(`LoadingSpinner: pulled '${currentIconSize}' from custom properties.`);

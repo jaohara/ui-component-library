@@ -5,6 +5,11 @@
   border: var(--common-border-size solid transparent);
   padding: var(--content-padding);
   margin-bottom: var(--common-margin);
+
+  &:not(.no-flex) {
+    display: flex;
+    flex-direction: column;
+  }
   
   // remove top margin from first Content in a Section
   .section > &:first-child {
@@ -38,6 +43,10 @@
     background-color: #FFFFFF00;
   }
 
+  // ======================================
+  // alignment, margin, and padding classes
+  // ======================================
+
   &.centered {
     align-items: center;
     display: flex;
@@ -57,10 +66,23 @@
 
   &.vertically-centered, &.centered {
     justify-content: center;
+
+    &.right-aligned {
+      align-items: center;
+      justify-content: initial;
+    }
   }
 
-  &:not(.no-flex) {
-    display: flex;
-    flex-direction: column;
+  // ================================
+  // spacing rules for final elements
+  // ================================
+
+  &:last-child, 
+  &:last-of-type,
+  & button:last-child,
+  & button:last-of-type,
+  & input:last-child,
+  & button:last-child {
+    margin-bottom: 0rem;
   }
 }

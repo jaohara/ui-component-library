@@ -12,6 +12,7 @@ import Image from './Image/Image';
 import List from './List/List';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 import LogPane from './LogPane/LogPane';
+import NavBar from './NavBar/NavBar';
 import Notification from './Notification/Notification';
 import NotificationPane from './NotificationPane/NotificationPane';
 import NumberInput from './NumberInput/NumberInput';
@@ -38,6 +39,7 @@ export {
   List,
   LoadingSpinner,
   LogPane,
+  NavBar,
   Notification,
   NotificationPane,
   NumberInput,
@@ -50,4 +52,4 @@ export {
   TextArea,
   TextInput,
   ToggleSwitch,
-}
+};

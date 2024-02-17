@@ -58,9 +58,10 @@ const Section = ({
       : verticalPaddingClassNames[1];
 
 
-  const SectionClassNames = `
+  //temporarily removed:
+  // ${parsedBgShade}-shade
+  const sectionClassNames = `
     section
-    ${parsedBgShade}-shade
     ${verticalPaddingClassName}
     ${noPadding ? "no-padding" : ""}
     ${noPaddingBottom ? "no-padding-bottom" : ""}
@@ -77,7 +78,7 @@ const Section = ({
 
   return ( 
     <div 
-      className={SectionClassNames}
+      className={sectionClassNames}
       style={style}
     >
       {children}
