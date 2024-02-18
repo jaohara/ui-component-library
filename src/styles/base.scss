@@ -54,14 +54,33 @@ label:not(.checkbox-label, .radio-button-label) {
   max-width: var(--input-box-max-width);
 }
 
-.common-button, .common-input, textarea {
+
+
+// .common-button, .common-input, textarea {
+.common-input, textarea {
   box-shadow: var(--input-box-shadow);
 }
 
+.common-button:hover, 
+.common-button:active {
+  box-shadow: var(--button-hover-box-shadow);
+}
+
+.common-input:hover,
+.common-input:active {
+  box-shadow: var(--input-hover-box-shadow);
+}
+
 .common-button {
-  margin-bottom: var(--common-margin);
+  align-items: center;
   background-color: var(--button-background-color);
+  border: var(--common-border-size) solid var(--button-border-color);
   border-radius: var(--common-border-radius);
+  box-shadow: var(--button-box-shadow);
+  color: var(--button-text-color);
+  display: flex;
+  font-weight: bold;
+  margin-bottom: var(--common-margin);
 }
 
 .common-input {

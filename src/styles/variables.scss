@@ -12,7 +12,7 @@
   --light-gray-200: #d8dbde;
   --light-gray-300: #c8cbce;
   --light-gray-400: #a4a9ae;
-  --light-box-shadow-color: #00000022;
+  --light-box-shadow-color: #00000011;
   --red-100: #ff6666;
   --red-200: #da4c4c;
   --red-300: #de3333;
@@ -37,17 +37,17 @@
   --badge-margin-right: .5rem;
   --badge-padding: .6rem .8rem;
   --button-font-size: 1.1rem;
-  --button-padding-vertical: 1rem;
-  --button-padding-horizontal: 1.5rem;
-  // --common-border-radius: 8px;
-  --common-border-radius: 12px;
+  --button-padding: 1rem 1.5rem;
+  --common-border-radius: 8px;
+  // --common-border-radius: 12px;
   --common-border-size: 1px;
   --common-gap: 1rem;
   --common-padding: 1rem;
   --common-margin: 1rem;
   --content-container-max-width: 920px; // TODO: what is this for?
   --content-icon-size: 92px;
-  --content-padding: calc(var(--common-padding) * 2);
+  // --content-padding: calc(var(--common-padding) * 2);
+  --content-padding: var(--common-padding);
   --content-group-margin: var(--common-margin);
   --full-screen-background-opacity: .6;
   --horizontal-divider-thickness: 2px;
@@ -60,7 +60,7 @@
   --section-header-font-size: 1.4rem;
   --slider-thumb-size: 1.2rem;
   --slider-thumb-webkit-offset: -4px;
-  --slider-track-height: .8rem;
+  --slider-track-height: .25rem;
   --table-cell-padding: .4rem .8rem;
   --text-size: 1.2rem;
   --ui-icon-size: 32px;
@@ -78,6 +78,7 @@
 
   // common property values
   --button-box-shadow: 0px 1px 2px var(--box-shadow-color);
+  --button-text-shadow: 0px 1px 2px var(--box-shadow-color);
   --button-hover-box-shadow: 0px 1px 4px var(--box-shadow-color);
   --common-box-shadow: 0px 12px 32px var(--box-shadow-color);
   --common-border: var(--common-border-size) solid var(--border-color);
