@@ -5,20 +5,24 @@
   --dark-gray-300: #353638;
   --dark-gray-400: #161717;
   --dark-gray-500: #080808;
-  --light-box-shadow-color: #00000033;
+  // TODO: Maybe not this one
+  --dark-box-shadow-color: #ffffff33;
   --light-gray-000: #fefefe;
   --light-gray-100: #edeff2;
   --light-gray-200: #d8dbde;
   --light-gray-300: #c8cbce;
   --light-gray-400: #a4a9ae;
+  --light-box-shadow-color: #00000022;
   --red-100: #ff6666;
   --red-200: #da4c4c;
   --red-300: #de3333;
-  --blue-100: #66caed;
-  --blue-200: #33b9e7;
-  --blue-300: #00a7e1;
-  --blue-400: #0086b4;
-  --blue-500: #006487;
+  --blue-100: #e6f6fc;
+  --blue-200: #b3e5f6;
+  --blue-300: #66caed;
+  --blue-400: #33b9e7;
+  --blue-500: #00a7e1;
+  --blue-600: #0086b4;
+  --blue-700: #006487;
 
   --rose: #f40076;
   --pumpkin: #ff8c42;
@@ -28,16 +32,16 @@
   // sizes
   --app-body-padding: .5rem;
   --app-padding-top: 5.4rem;
+  --badge-font-size: .85rem;
   --badge-border-radius: 2rem;
   --badge-margin-right: .5rem;
-  --badge-padding: .65rem .85rem;
-  --button-font-size: 1.2rem;
+  --badge-padding: .6rem .8rem;
+  --button-font-size: 1.1rem;
   --button-padding-vertical: 1rem;
   --button-padding-horizontal: 1.5rem;
   // --common-border-radius: 8px;
   --common-border-radius: 12px;
   --common-border-size: 1px;
-  --common-box-shadow: 0px 12px 32px var(--light-box-shadow-color);
   --common-gap: 1rem;
   --common-padding: 1rem;
   --common-margin: 1rem;
@@ -57,6 +61,7 @@
   --slider-thumb-size: 1.2rem;
   --slider-thumb-webkit-offset: -4px;
   --slider-track-height: .8rem;
+  --table-cell-padding: .4rem .8rem;
   --text-size: 1.2rem;
   --ui-icon-size: 32px;
 
@@ -71,20 +76,33 @@
   --m-breakpoint: 1280px;
   --l-breakpoint: 1920px;
 
+  // common property values
+  --button-box-shadow: 0px 1px 2px var(--box-shadow-color);
+  --button-hover-box-shadow: 0px 1px 4px var(--box-shadow-color);
+  --common-box-shadow: 0px 12px 32px var(--box-shadow-color);
+  --common-border: var(--common-border-size) solid var(--border-color);
+  --input-box-shadow: 0px 1px 2px var(--box-shadow-color);
+  --input-hover-box-shadow: 0px 1px 4px var(--box-shadow-color);
+  --table-box-shadow: 0px 1px 2px var(--box-shadow-color);
+
+  
   // light/default theming color roles
-  --badge-text-color: var(--light-gray-100);
-  --border-color: var(--light-gray-400);
+  // --badge-text-color: var(--light-gray-100);
+  --badge-text-color: var(--primary-color-800);
+  --badge-background-color: var(--primary-color-200);
+  --border-color: var(--light-gray-300);
   --border-highlight-color: var(--light-gray-300);
+  --box-shadow-color: var(--light-box-shadow-color);
   // --button-background-color: transparent; // TODO: Revisit this color
   --button-background-color: var(--primary-color); 
   // --button-border-color: var(--light-gray-400);
   --button-border-color: var(--primary-color);
   --button-border-highlight-color: var(--light-gray-100);
   --button-border-color: var(--button-hover-background-color);
-  --button-hover-background-color: var(--blue-200);
+  --button-hover-background-color: var(--primary-color-400);
   --button-hover-text-color: var(--light-gray-100);
   --button-text-color: var(--light-gray-100);
-  --code-background-color: var(--light-gray-200);
+  --codeblock-background-color: var(--light-gray-100);
   --content-background-color: var(--light-gray-100);
   --delete-unlocked-fill-color: var(--red-300);
   --delete-unlocked-text-color: var(--light-gray-100);
@@ -98,7 +116,7 @@
   --input-focus-border-color: var(--primary-color);
   // --input-background-color: transparent; // TODO: revisit this color
   --input-background-color: var(--light-gray-100); 
-  --input-background-color: white; 
+  --input-background-color: white;
   --input-error-border-color: var(--red-100);
   --nav-bar-background-color: var(--light-gray-200);
   --nav-bar-text-color: var(--text-color);
@@ -107,12 +125,17 @@
   --primary-color-300: var(--blue-300);
   --primary-color-400: var(--blue-400);
   --primary-color-500: var(--blue-500);
-  --primary-color: var(--blue-300);
+  --primary-color-600: var(--blue-600);
+  --primary-color-700: var(--blue-700);
+  --primary-color-800: var(--blue-800);
+  --primary-color: var(--primary-color-500);
   --section-background-color: var(--light-gray-000);
   --slider-track-empty-color: var(--light-gray-300);
   --slider-track-filled-color: var(--primary-color);
   // --slider-thumb-color: var(--dark-gray-100);
   --slider-thumb-color: var(--primary-color);
+  --table-header-cell-background-color: var(--light-gray-100);
+  --table-zebra-stripe-color: var(--primary-color-100);
   --text-color: var(--dark-gray-400);
   --toggle-switch-text-color: var(--light-gray-100);
 }
@@ -120,6 +143,7 @@
 .dark {
   // dark theming color roles
   --border-color: var(--dark-gray-200);
+  --box-shadow-color: var(--dark-box-shadow-color);
   --content-background-color: var(--dark-gray-300);
   --input-background-color: var(--dark-gray-200);
   --section-background-color: var(--dark-gray-500);

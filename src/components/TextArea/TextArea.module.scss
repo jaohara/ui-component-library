@@ -9,6 +9,7 @@
     min-height: 8rem;
     outline: none;
     padding: var(--input-padding);
+    resize: none;
     width: 100%;
 
     &:focus {
@@ -17,6 +18,10 @@
   
     &.error {
       border-color: var(--input-error-border-color);
+    }
+
+    &.allow-resize {
+      resize: initial;
     }
   }
 }

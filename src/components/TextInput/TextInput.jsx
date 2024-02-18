@@ -1,5 +1,6 @@
 import React from 'react';
 
+// TODO: Move to TextInput.module.scss
 import "./TextInput.scss";
 
 const TextInput = ({
@@ -12,7 +13,8 @@ const TextInput = ({
   setValue = () => {},
   value = "",
 }) => {
-  const getClassNames = () => `
+  const inputClassNames = `
+    common-input
     text-input
     ${error ? "error" : ""}
   `;
@@ -37,7 +39,7 @@ const TextInput = ({
         label && (<label>{label}</label>)
       }
       <input 
-        className={getClassNames()}
+        className={inputClassNames}
         // onChange={e => setValue(e.target.value)}
         onChange={e => handleInput(e)}
         placeholder={password ? "" : placeholder}

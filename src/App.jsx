@@ -42,6 +42,26 @@ import CodeBlock from './components/CodeBlock/CodeBlock';
 
 const selectListOptions = ["Apple", "Banana", "Carrot", "Daikon"];
 
+const tableHeaders = [
+  { key: "name", label: "Name", isRowHeader: true },
+  { key: "age", label: "Age" },
+  { key: "color", label: "Favorite Color?" },
+  { key: "food", label: "Favorite Food?" },
+];
+
+const tableData = [
+  { name: "John", age: 32, color: "Blue", food: "Lasagna" },
+  {"name": "Alice", "age": 28, "color": "Green", "food": "Pizza"},
+  {"name": "Bob", "age": 34, "color": "Red", "food": "Sushi"},
+  {"name": "Charlie", "age": 25, "color": "Yellow", "food": "Burger"},
+  {"name": "Diana", "age": 30, "color": "Purple", "food": "Salad"},
+  {"name": "Evan", "age": 22, "color": "Orange", "food": "Tacos"},
+  {"name": "Fiona", "age": 27, "color": "Pink", "food": "Pasta"},
+  {"name": "George", "age": 35, "color": "Black", "food": "Curry"},
+  {"name": "Hannah", "age": 29, "color": "White", "food": "Sandwich"},
+  {"name": "Ivan", "age": 31, "color": "Gray", "food": "Steak"},
+];
+
 const listItems = selectListOptions;
 
 const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cupiditate quo, blanditiis deserunt expedita officiis provident repudiandae autem ipsa tempora voluptas aliquid quis ratione deleniti ducimus inventore minima. Impedit, doloremque."
@@ -184,7 +204,11 @@ function App() {
           <List ordered listItems={listItems}/>
 
           <h2>Tables</h2>
-          <Table></Table>
+          <Table 
+            data={tableData}
+            headers={tableHeaders}
+            zebraStriping
+          />
 
           <h2>Code Blocks</h2>
           <CodeBlock />

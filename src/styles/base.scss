@@ -35,7 +35,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0rem;
-  margin-bottom: g.$common-margin;
+  margin-bottom: var(--common-margin);
 }
 
 label:not(.checkbox-label, .radio-button-label) {
@@ -52,6 +52,10 @@ label:not(.checkbox-label, .radio-button-label) {
   flex-direction: column;
   margin-bottom: var(--common-margin);
   max-width: var(--input-box-max-width);
+}
+
+.common-button, .common-input, textarea {
+  box-shadow: var(--input-box-shadow);
 }
 
 .common-button {

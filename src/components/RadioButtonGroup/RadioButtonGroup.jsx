@@ -11,7 +11,7 @@ const RadioButtonGroup = ({
 }) => {
   return (
     <div
-      // className={styles.}
+      className={styles.wrapper}
     >
       <em>I'm a <strong>RadioButtonGroup</strong> and I need to be implemented.</em>
     </div>
