@@ -15,6 +15,12 @@
     table-layout: fixed;
   }
 
+  caption {
+    caption-side: bottom;
+    // TODO: Decide how I want captions to appear
+    display: none;
+  }
+
   th {
     background-color: var(--table-header-cell-background-color);
     text-align: left;

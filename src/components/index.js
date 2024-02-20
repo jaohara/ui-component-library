@@ -12,7 +12,8 @@ import Image from './Image/Image';
 import List from './List/List';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 import LogPane from './LogPane/LogPane';
-import NavBar from './NavBar/NavBar';
+// import NavBar from './NavBar/NavBar';
+import { NavBar, SubNavBar } from './NavBar/NavBar';
 import Notification from './Notification/Notification';
 import NotificationPane from './NotificationPane/NotificationPane';
 import NumberInput from './NumberInput/NumberInput';
@@ -48,6 +49,7 @@ export {
   Section,
   Select,
   Slider,
+  SubNavBar,
   Table,
   TextArea,
   TextInput,

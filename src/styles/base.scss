@@ -20,7 +20,6 @@
   // font-family: g.$body-font, sans-serif;
   color: var(--text-color);
   font-family: var(--body-font), sans-serif;
-
 }
 
 html, body {
@@ -39,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 label:not(.checkbox-label, .radio-button-label) {
+  color: var(--label-text-color);
   font-size: var(--label-font-size);
   font-weight: bold;
   line-height: var(--label-font-size);
@@ -75,12 +75,13 @@ label:not(.checkbox-label, .radio-button-label) {
   align-items: center;
   background-color: var(--button-background-color);
   border: var(--common-border-size) solid var(--button-border-color);
-  border-radius: var(--common-border-radius);
+  border-radius: var(--button-border-radius);
   box-shadow: var(--button-box-shadow);
   color: var(--button-text-color);
   display: flex;
   font-weight: bold;
   margin-bottom: var(--common-margin);
+  text-shadow: var(--button-text-shadow);
 }
 
 .common-input {

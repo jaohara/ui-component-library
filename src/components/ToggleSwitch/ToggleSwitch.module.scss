@@ -9,9 +9,10 @@
 .toggle-switch {
   // TODO: Replace with actual CSS global variables for transition/colors/margin/border-radius
   background-color: var(--button-background-color);
-  border-radius: var(--common-border-radius);
+  // border-radius: var(--common-border-radius);
+  border-radius: var(--button-border-radius);
   border: var(--common-border-size) solid var(--button-border-color);
-  color: var(--text-color);
+  color: var(--button-text-color);
   font-size: 1.2rem;
   font-weight: bold;
   padding: .5rem 1.0rem;
@@ -20,7 +21,7 @@
   width: 5rem;
 
   &:hover {
-    background-color: #efefef;
+    background-color: var(--button-hover-background-color);
     cursor: pointer;
   }
 }

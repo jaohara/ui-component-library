@@ -62,6 +62,8 @@ const tableData = [
   {"name": "Ivan", "age": 31, "color": "Gray", "food": "Steak"},
 ];
 
+const tableCaption = "An example table with a caption.";
+
 const listItems = selectListOptions;
 
 const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cupiditate quo, blanditiis deserunt expedita officiis provident repudiandae autem ipsa tempora voluptas aliquid quis ratione deleniti ducimus inventore minima. Impedit, doloremque."
@@ -205,6 +207,7 @@ function App() {
 
           <h2>Tables</h2>
           <Table 
+            caption={tableCaption}
             data={tableData}
             headers={tableHeaders}
             zebraStriping

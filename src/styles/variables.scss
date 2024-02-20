@@ -13,6 +13,7 @@
   --light-gray-300: #c8cbce;
   --light-gray-400: #a4a9ae;
   --light-box-shadow-color: #00000011;
+  --light-text-shadow-color: #00000033;
   --red-100: #ff6666;
   --red-200: #da4c4c;
   --red-300: #de3333;
@@ -36,9 +37,10 @@
   --badge-border-radius: 2rem;
   --badge-margin-right: .5rem;
   --badge-padding: .6rem .8rem;
+  --button-border-radius: 1.85rem;
   --button-font-size: 1.1rem;
   --button-padding: 1rem 1.5rem;
-  --common-border-radius: 8px;
+  --common-border-radius: 6px;
   // --common-border-radius: 12px;
   --common-border-size: 1px;
   --common-gap: 1rem;
@@ -49,6 +51,7 @@
   // --content-padding: calc(var(--common-padding) * 2);
   --content-padding: var(--common-padding);
   --content-group-margin: var(--common-margin);
+  --font-size: 1.2rem;
   --full-screen-background-opacity: .6;
   --horizontal-divider-thickness: 2px;
   --input-box-max-width: calc(var(--content-container-max-width) / 2);
@@ -62,11 +65,10 @@
   --slider-thumb-webkit-offset: -4px;
   --slider-track-height: .25rem;
   --table-cell-padding: .4rem .8rem;
-  --text-size: 1.2rem;
   --ui-icon-size: 32px;
 
   // transition times
-  --ui-fast-transition: 100ms;
+  --ui-fast-transition: 150ms;
   --ui-slow-transition: 250ms;
   // --background-color-transition: 1000ms;
 
@@ -78,7 +80,8 @@
 
   // common property values
   --button-box-shadow: 0px 1px 2px var(--box-shadow-color);
-  --button-text-shadow: 0px 1px 2px var(--box-shadow-color);
+  // --button-text-shadow: 0px 1px 1px var(--box-shadow-color);
+  --button-text-shadow: 0px 1px 1px var(--button-text-shadow-color);
   --button-hover-box-shadow: 0px 1px 4px var(--box-shadow-color);
   --common-box-shadow: 0px 12px 32px var(--box-shadow-color);
   --common-border: var(--common-border-size) solid var(--border-color);
@@ -91,7 +94,7 @@
   // --badge-text-color: var(--light-gray-100);
   --badge-text-color: var(--primary-color-800);
   --badge-background-color: var(--primary-color-200);
-  --border-color: var(--light-gray-300);
+  --border-color: var(--light-gray-200);
   --border-highlight-color: var(--light-gray-300);
   --box-shadow-color: var(--light-box-shadow-color);
   // --button-background-color: transparent; // TODO: Revisit this color
@@ -103,6 +106,7 @@
   --button-hover-background-color: var(--primary-color-400);
   --button-hover-text-color: var(--light-gray-100);
   --button-text-color: var(--light-gray-100);
+  --button-text-shadow-color: var(--light-text-shadow-color);
   --codeblock-background-color: var(--light-gray-100);
   --content-background-color: var(--light-gray-100);
   --delete-unlocked-fill-color: var(--red-300);
@@ -119,8 +123,10 @@
   --input-background-color: var(--light-gray-100); 
   --input-background-color: white;
   --input-error-border-color: var(--red-100);
+  --label-text-color: var(--dark-gray-200);
   --nav-bar-background-color: var(--light-gray-200);
   --nav-bar-text-color: var(--text-color);
+  --nav-bar-top-bar-color: var(--primary-color);
   --primary-color-100: var(--blue-100);
   --primary-color-200: var(--blue-200);
   --primary-color-300: var(--blue-300);
@@ -132,7 +138,8 @@
   --primary-color: var(--primary-color-500);
   --section-background-color: var(--light-gray-000);
   --slider-track-empty-color: var(--light-gray-300);
-  --slider-track-filled-color: var(--primary-color);
+  // --slider-track-filled-color: var(--primary-color);
+  --slider-track-filled-color: var(--primary-color-300);
   // --slider-thumb-color: var(--dark-gray-100);
   --slider-thumb-color: var(--primary-color);
   --table-header-cell-background-color: var(--light-gray-100);
@@ -143,10 +150,16 @@
 
 .dark {
   // dark theming color roles
-  --border-color: var(--dark-gray-200);
+  --badge-text-color: var(--light-gray-000);
+  --badge-background-color: var(--primary-color-500);
+  --border-color: var(--dark-gray-300);
+  // --border-color: red;
   --box-shadow-color: var(--dark-box-shadow-color);
   --content-background-color: var(--dark-gray-300);
   --input-background-color: var(--dark-gray-200);
+  --label-text-color: var(--light-gray-200);
   --section-background-color: var(--dark-gray-500);
+  --table-header-cell-background-color: var(--dark-gray-300);
+  --table-zebra-stripe-color: var(--primary-color-00);
   --text-color: var(--light-gray-100);
 }

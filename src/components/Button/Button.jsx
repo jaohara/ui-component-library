@@ -49,6 +49,7 @@ const Button = React.forwardRef(({
   onMouseEnter = () => {},
   onMouseLeave = () => {},
   iconType = "none",
+  sidebarToggle, // TODO: Make use of this for sidebar button styling
 }, ref) => {
   const buttonIcons = {
     "back": (<TbArrowBack />),
