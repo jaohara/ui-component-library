@@ -1,8 +1,10 @@
 import React from 'react';
 
+// TODO: Move to TextInput.module.scss
 import "./TextInput.scss";
 
 const TextInput = ({
+  email = false,
   error = false,
   label,
   onChange,
@@ -11,7 +13,8 @@ const TextInput = ({
   setValue = () => {},
   value = "",
 }) => {
-  const getClassNames = () => `
+  const inputClassNames = `
+    common-input
     text-input
     ${error ? "error" : ""}
   `;
@@ -24,17 +27,23 @@ const TextInput = ({
     }
   };
 
+  const inputType = (() => {
+    if (password) return "password";
+    if (email) return "email";
+    return "text";
+  })();
+
   return ( 
-    <div className="text-input-wrapper">
+    <div className="text-input-wrapper input-wrapper">
       {
-        label && (<label className="text-input-label">{label}</label>)
+        label && (<label>{label}</label>)
       }
       <input 
-        className={getClassNames()}
+        className={inputClassNames}
         // onChange={e => setValue(e.target.value)}
         onChange={e => handleInput(e)}
         placeholder={password ? "" : placeholder}
-        type={password ? "password" : "text"}
+        type={inputType}
         value={value}
       />
     </div>

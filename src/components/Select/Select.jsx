@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import "./Select.scss";
+import styles from './Select.module.scss';
 
 const isFunction = (input) => input && typeof input === "function";
 
@@ -14,6 +14,7 @@ const Select = ({
 }) => {
   const getClassNames = () => `
     select-input
+    common-input
   `;
 
   const handleSelect = (e) => {
@@ -24,12 +25,12 @@ const Select = ({
     if (options && Array.isArray(options) && options.length > 0) {
       isFunction(setValue) && setValue(options[0]);
     }
-  }, [])
+  }, []);
 
   return (
-    <div className="select-wrapper">
+    <div className={`${styles.wrapper} input-wrapper`}>
       {
-        label && (<label className="select-lable">{label}</label>)
+        label && (<label>{label}</label>)
       }
       <select 
         className={getClassNames()}

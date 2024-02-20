@@ -1,4 +1,4 @@
-// TODO: Import individual components from directories and export
+import '../styles/variables.scss';
 
 import Badge from './Badge/Badge';
 import Button from './Button/Button';
@@ -12,6 +12,8 @@ import Image from './Image/Image';
 import List from './List/List';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 import LogPane from './LogPane/LogPane';
+// import NavBar from './NavBar/NavBar';
+import { NavBar, SubNavBar } from './NavBar/NavBar';
 import Notification from './Notification/Notification';
 import NotificationPane from './NotificationPane/NotificationPane';
 import NumberInput from './NumberInput/NumberInput';
@@ -38,6 +40,7 @@ export {
   List,
   LoadingSpinner,
   LogPane,
+  NavBar,
   Notification,
   NotificationPane,
   NumberInput,
@@ -46,8 +49,9 @@ export {
   Section,
   Select,
   Slider,
+  SubNavBar,
   Table,
   TextArea,
   TextInput,
   ToggleSwitch,
-}
+};

@@ -1,0 +1,88 @@
+@use "../../styles/globals.scss" as g;
+
+.content {
+  border-radius: var(--common-border-radius);
+  border: var(--common-border-size solid transparent);
+  padding: var(--content-padding);
+  margin-bottom: var(--common-margin);
+
+  &:not(.no-flex) {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  // remove top margin from first Content in a Section
+  .section > &:first-child {
+    margin-top: var(--common-margin);
+  }
+
+  &.full-width {
+    border-radius: 0rem;
+    width: 100%;
+  }
+
+  // give fixed-width Contents the standard responsive widths
+  &.fixed-width {
+    @include g.standard-responsive-widths();
+  }
+
+  // ensure sub-Content elements fill their parent container, be it another
+  //  Content or ContentGroup
+  &.fixed-width > &, .content-group > & {
+    width: 100%;
+  }
+
+  // ==========================
+  // background opacity classes
+  // ==========================
+  &.opaque-bg {
+    background-color: var(--content-background-color);
+  }
+
+  &.transparent-bg {
+    background-color: #FFFFFF00;
+  }
+
+  // ======================================
+  // alignment, margin, and padding classes
+  // ======================================
+
+  &.centered {
+    align-items: center;
+    display: flex;
+  }
+
+  &.no-padding {
+    padding: 0rem;
+  }
+
+  &.no-margin {
+    margin: 0rem;
+  }
+
+  &.right-aligned {
+    flex-direction: row-reverse;
+  }
+
+  &.vertically-centered, &.centered {
+    justify-content: center;
+
+    &.right-aligned {
+      align-items: center;
+      justify-content: initial;
+    }
+  }
+
+  // ================================
+  // spacing rules for final elements
+  // ================================
+
+  &:last-child, 
+  &:last-of-type,
+  & button:last-child,
+  & button:last-of-type,
+  & input:last-child,
+  & button:last-child {
+    margin-bottom: 0rem;
+  }
+}

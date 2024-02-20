@@ -1,0 +1,46 @@
+.wrapper {
+  margin-bottom: var(--common-margin);
+  box-shadow: var(--table-box-shadow);
+  border-radius: var(--common-border-radius);
+  overflow-x: scroll;
+  width: 100%;
+
+  table {
+    border: var(--common-border-size) solid var(--border-color);
+    // separate over collapse preserves border radius
+    border-collapse: separate;
+    border-radius: var(--common-border-radius);
+    border-spacing: 0px;
+    min-width: 100%;
+    table-layout: fixed;
+  }
+
+  caption {
+    caption-side: bottom;
+    // TODO: Decide how I want captions to appear
+    display: none;
+  }
+
+  th {
+    background-color: var(--table-header-cell-background-color);
+    text-align: left;
+  }
+
+  th, td {
+    padding: var(--table-cell-padding);
+    border-bottom: var(--common-border);
+    border-right: var(--common-border);
+  }
+
+  th:last-of-type, td:last-of-type {
+    border-right: 0px;
+  }
+  
+  tr:last-of-type td {
+    border-bottom: 0px;
+  }
+}
+
+.zebra-striping tr:not(thead tr):hover {
+  background-color: var(--table-zebra-stripe-color);
+}

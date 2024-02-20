@@ -5,8 +5,12 @@
   border: g.$common-border-size solid transparent;
   display: flex;
   flex-direction: column;
-  padding: calc(g.$common-padding * 2);
   margin-bottom: g.$common-margin;
+  padding: calc(g.$common-padding * 2);
+  transition: 
+    background-color var(--ui-fast-transition), 
+    color var(--ui-fast-transition); 
+
   
   // remove top margin from first Content in a Section
   .section > &:first-child {

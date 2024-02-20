@@ -29,7 +29,7 @@ const Checkbox = ({
     <div className={styles.wrapper} key={key}>
       {
         label ? (
-          <label>{checkboxJSX}{label}</label>
+          <label className="checkbox-label">{checkboxJSX}{label}</label>
         ) : (
           {checkboxJSX}
         )

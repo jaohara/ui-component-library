@@ -4,12 +4,40 @@ import styles from "./TextArea.module.scss";
 
 // TODO: Implement this component
 
-const TextArea = () => {
+const TextArea = ({
+  allowResize = false,
+  className,
+  error = false, // TODO: make this conditionally add a classname/style appropriately
+  label,
+  placeholder = "",
+  setValue = () => {},
+  value,
+}) => {
+  const textareaClassNames = `
+    ${allowResize ? styles["allow-resize"] : ""}
+    ${error ? styles["error"] : ""}
+  `;
+
+  const handleInput = (e) => {
+    if (setValue && typeof setValue === "function") {
+      setValue(e.target.value);
+    }
+  };
+
   return (
     <div
-      // className={styles.}
+      className={`${className} ${styles["textarea-wrapper"]}`}
     >
-      <em>I'm a <strong>TextArea</strong> and I need to be implemented.</em>
+      {
+        label && (<label>{label}</label>)
+      }
+      <textarea
+        className={textareaClassNames}
+        onChange={handleInput}
+        placeholder={placeholder}
+        value={value}
+      >
+      </textarea>
     </div>
   );
 }

@@ -1,0 +1,73 @@
+@use "../../styles/globals.scss" as g;
+
+// a lot of these rules are moved to mixins in globals.scss so that they can be used
+//  in places (PuzzleSelectionContainer) for custom button behavior.
+
+.app-button {
+  // @include g.button-normal-state();
+  font-size: var(--button-font-size);
+  opacity: 1;
+  // padding: .6rem 1rem;
+  padding: var(--button-padding);
+  transition: 
+    background-color var(--ui-fast-transition), 
+    border-color var(--ui-fast-transition), 
+    box-shadow var(--ui-fast-transition), 
+    color var(--ui-fast-transition), 
+    opacity var(--ui-fast-transition);
+
+  .button-icon-wrapper svg path {
+    color: var(--text-color);
+  }
+
+  &:hover:not(:disabled), &:hover:not(.loading), .active-route & {
+    // @include g.glow-border(var(--button-border-hover-color));
+    background-color: var(--button-hover-background-color);
+    color: var(--button-hover-text-color);
+    cursor: pointer;
+
+    .button-icon-wrapper svg path {
+      color: var(--button-hover-text-color);
+    }
+
+    &.delete-unlocked .button-icon-wrapper svg path {
+      color: var(--delete-unlocked-font-color);
+    }
+
+    &.delete-unlocked { 
+      background-color: var(--delete-unlocked-fill-color);
+      border-color: var(--delete-unlocked-fill-color);
+    }
+
+    &.delete-unlocked {
+      // background-color: ;
+      color: var(--delete-unlocked-text-color);
+    }
+  }
+
+  &:disabled, &.loading {
+    opacity: .3;
+  }
+
+  &.delete-unlocked {
+    color: var(--delete-unlocked-text-color);
+  }
+}
+
+.button-icon-wrapper {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  margin-left: .5rem;
+  pointer-events: none;
+  justify-content: center;
+
+  &.no-margin {
+    // TODO: What is this for again?
+    margin-right: 0rem;
+  }
+
+  &.waiting, &.loading {
+    animation: spin 1s linear infinite;
+  }
+}

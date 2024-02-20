@@ -9,10 +9,10 @@ $dark-opacity: .65;
 $darker-opacity: .8;
 
 .section {
-  $vertical-padding: calc(2 * g.$common-padding);
+  $vertical-padding: calc(2 * var(--common-padding));
 
   align-items: center;
-  background-color: rgba(g.$full-screen-panel-background-color, $normal-opacity);
+  background-color: var(--section-background-color);
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -40,19 +40,19 @@ $darker-opacity: .8;
   // background shades
   // =================
   &.lighter-shade {
-    background-color: rgba(g.$full-screen-panel-background-color, $lighter-opacity);
+    // background-color: rgba(g.$section-background-color, $lighter-opacity);
   }
   
   &.light-shade {
-    background-color: rgba(g.$full-screen-panel-background-color, $light-opacity);
+    // background-color: rgba(g.$section-background-color, $light-opacity);
   }
 
   &.dark-shade {
-    background-color: rgba(g.$full-screen-panel-background-color, $dark-opacity);
+    // background-color: rgba(g.$section-background-color, $dark-opacity);
   }
   
   &.darker-shade {
-    background-color: rgba(g.$full-screen-panel-background-color, $darker-opacity);
+    // background-color: rgba(g.$section-background-color, $darker-opacity);
   } 
 
   &.transparent-bg {

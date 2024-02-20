@@ -12,6 +12,7 @@ const ContentGroup = ({
   columns = 3,
   // a string for a CSS size value to assign a fixed width to the first child column
   firstChildSize,
+  noMargin = false,
   style,
 }) => {
   const childCount = React.Children.count(children);
@@ -46,6 +47,7 @@ const ContentGroup = ({
     content-group
     columns-${parsedColumns <= MAX_COLUMNS ? parsedColumns : MAX_COLUMNS}
     ${firstChildSize ? "fixed-first-child" : ""}
+    ${noMargin ? "no-margin" : ""}
   `;
 
   return ( 
@@ -53,7 +55,6 @@ const ContentGroup = ({
       className={contentGroupClassNames}
       style={style}
     >
-      {/* {children} */}
       {parsedChildren}
     </div>
   );

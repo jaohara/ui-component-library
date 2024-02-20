@@ -1,0 +1,131 @@
+@use "./globals.scss" as g; // TODO: Remove import and change to use custom properties
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=JetBrains+Mono:wght@300&display=swap');
+
+/*
+  WHAT IS THIS?
+
+  This is the base stylesheet that specifies resets and default styling. All other 
+  CSS modules will be working off of these rules being assumed, and any additional
+  theming will start with this 
+*/
+
+:root {
+  --body-font: "Inter Tight";
+  --mono-font: "JetBrains Mono";
+}
+
+* {
+  box-sizing: border-box;
+  // font-family: g.$body-font, sans-serif;
+  color: var(--text-color);
+  font-family: var(--body-font), sans-serif;
+}
+
+html, body {
+  line-height: 1.8rem;
+  max-width: 100%;
+  // overflow: hidden;
+}
+
+body {
+  margin: 0rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0rem;
+  margin-bottom: var(--common-margin);
+}
+
+label:not(.checkbox-label, .radio-button-label) {
+  color: var(--label-text-color);
+  font-size: var(--label-font-size);
+  font-weight: bold;
+  line-height: var(--label-font-size);
+  margin-bottom: .25rem;
+  padding-left: .2rem;
+}
+
+// used to wrap inputs with their labels
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--common-margin);
+  max-width: var(--input-box-max-width);
+}
+
+
+
+// .common-button, .common-input, textarea {
+.common-input, textarea {
+  box-shadow: var(--input-box-shadow);
+}
+
+.common-button:hover, 
+.common-button:active {
+  box-shadow: var(--button-hover-box-shadow);
+}
+
+.common-input:hover,
+.common-input:active {
+  box-shadow: var(--input-hover-box-shadow);
+}
+
+.common-button {
+  align-items: center;
+  background-color: var(--button-background-color);
+  border: var(--common-border-size) solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  color: var(--button-text-color);
+  display: flex;
+  font-weight: bold;
+  margin-bottom: var(--common-margin);
+  text-shadow: var(--button-text-shadow);
+}
+
+.common-input {
+  // rules shared by most inputs (TextInput, NumberInput, Select, etc.)
+  background-color: var(--input-background-color);
+  border: var(--common-border-size) solid var(--border-color);
+  border-color: var(--border-color);
+  border-radius: var(--common-border-radius);
+  font-size: var(--input-font-size);
+  outline: none;
+  padding: var(--input-padding);
+  transition: border-color var(--ui-fast-transition);
+
+  &:focus {
+    border-color: var(--input-focus-border-color);
+  }
+
+  &.error {
+    border-color: var(--input-error-border-color);
+  }
+}
+
+pre, code {
+  // @include g.inline-mono-styling();
+  background-color: var(--code-background-color);
+  border-radius: var(--common-border-radius);
+  font-family: var(--mono-font);
+  font-size: .9rem;
+  padding: .2rem .5rem;
+}
+
+pre {
+  background-color: initial;
+}
+
+p {
+  margin: 0rem;
+}
+
+.App {
+  // background-color: g.$app-background-color;
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  // overflow: hidden;
+  width: 100vw;
+}
