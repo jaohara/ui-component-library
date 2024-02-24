@@ -8,7 +8,9 @@
   // TODO: Maybe not this one
   --dark-box-shadow-color: #ffffff33;
   --light-gray-000: #fefefe;
-  --light-gray-100: #edeff2;
+  // --light-gray-100: #edeff2;
+  --light-gray-100: #f7f7f7;
+  // --light-gray-100: red; 
   --light-gray-200: #d8dbde;
   --light-gray-300: #c8cbce;
   --light-gray-400: #a4a9ae;
@@ -37,10 +39,11 @@
   --badge-border-radius: 2rem;
   --badge-margin-right: .5rem;
   --badge-padding: .6rem .8rem;
-  --button-border-radius: 1.85rem;
+  // --button-border-radius: 1.85rem;
+  --button-border-radius: var(--common-border-radius);
   --button-font-size: 1.1rem;
   --button-padding: 1rem 1.5rem;
-  --common-border-radius: 6px;
+  --common-border-radius: 8px;
   // --common-border-radius: 12px;
   --common-border-size: 1px;
   --common-gap: 1rem;
@@ -60,16 +63,35 @@
   --label-font-size: .8rem;
   --large-icon-size: 48px;
   --menu-list-item-margin: 1rem;
+  --nav-bar-min-height: 92px;
+  --nav-bar-element-padding: 1rem;
+  --nav-bar-top-border-size: 12px;
+  --nav-list-item-font-size: 1.2rem;
+  --nav-list-item-margin: .5rem;
+  --nav-list-item-padding: .4rem .85rem;
+  --nav-list-padding: 1rem;
   --section-header-font-size: 1.4rem;
+  --section-vertical-padding: 2rem;
   --slider-thumb-size: 1.2rem;
   --slider-thumb-webkit-offset: -4px;
-  --slider-track-height: .25rem;
+  --slider-track-border-radius: 1rem;
+  --slider-track-height: .4rem;
+  --side-bar-padding: 1rem;
+  --side-bar-toggle-padding: .6rem .85rem;
+  --side-bar-width: 20rem;
+  --toggle-slider-size: 24px;
+  --toggle-slider-spacing: calc((var(--toggle-switch-height) - var(--toggle-slider-size)) / 2);
+  --toggle-slider-translate-distance: calc(var(--toggle-switch-width) - var(--toggle-slider-size) - (2 * var(--toggle-slider-spacing)));
+  --toggle-switch-height: 32px;
+  --toggle-switch-width: 64px;
   --table-cell-padding: .4rem .8rem;
   --ui-icon-size: 32px;
 
   // transition times
   --ui-fast-transition: 150ms;
+  --ui-theme-transition: var(--ui-fast-transition);
   --ui-slow-transition: 250ms;
+  --toggle-slider-transition: 100ms;
   // --background-color-transition: 1000ms;
 
   // responsive breakpoints
@@ -88,6 +110,14 @@
   --input-box-shadow: 0px 1px 2px var(--box-shadow-color);
   --input-hover-box-shadow: 0px 1px 4px var(--box-shadow-color);
   --table-box-shadow: 0px 1px 2px var(--box-shadow-color);
+
+  // transitions
+  --common-transition:
+    background-color var(--ui-fast-transition), 
+    border-color var(--ui-fast-transition), 
+    box-shadow var(--ui-fast-transition), 
+    color var(--ui-fast-transition), 
+    opacity var(--ui-fast-transition);
 
   
   // light/default theming color roles
@@ -108,14 +138,17 @@
   --button-text-color: var(--light-gray-100);
   --button-text-shadow-color: var(--light-text-shadow-color);
   --codeblock-background-color: var(--light-gray-100);
-  --content-background-color: var(--light-gray-100);
+  // --content-background-color: var(--light-gray-100);
+  --content-background-color: var(--light-gray-000);
   --delete-unlocked-fill-color: var(--red-300);
   --delete-unlocked-text-color: var(--light-gray-100);
   --error-message-background-color: var(--red-200);
   --error-message-border-color: var(--red-200);
   --error-message-text-color: var(--red-200);
   --full-screen-panel-background-color: var(--dark-gray-400);
+  --hero-background-color: var(--primary-color-300);
   --horizontal-divider-color: var(--light-gray-200);
+  --icon-color: var(--text-color);
   --icon-completed-border-color: var(--light-gray-100);
   // --input-focus-border-color: var(--light-gray-100);
   --input-focus-border-color: var(--primary-color);
@@ -124,9 +157,13 @@
   --input-background-color: white;
   --input-error-border-color: var(--red-100);
   --label-text-color: var(--dark-gray-200);
-  --nav-bar-background-color: var(--light-gray-200);
+  // --nav-bar-background-color: var(--light-gray-100);
+  --nav-bar-background-color: var(--light-gray-000);
   --nav-bar-text-color: var(--text-color);
-  --nav-bar-top-bar-color: var(--primary-color);
+  --nav-bar-top-border-color: var(--primary-color);
+  --nav-list-item-hover-background-color: var(--light-gray-200);
+  // --nav-list-item-hover-text-color: 
+  --nav-list-item-selected-background-color: var(--primary-color-200);
   --primary-color-100: var(--blue-100);
   --primary-color-200: var(--blue-200);
   --primary-color-300: var(--blue-300);
@@ -136,15 +173,25 @@
   --primary-color-700: var(--blue-700);
   --primary-color-800: var(--blue-800);
   --primary-color: var(--primary-color-500);
-  --section-background-color: var(--light-gray-000);
+  // --section-background-color: var(--light-gray-000);
+  --section-background-color: var(--light-gray-100);
+  --side-bar-background-color: var(--light-gray-100);
+  --side-bar-text-color: var(--text-color);
+  // --side-bar-toggle-background-color: transparent;
+  --side-bar-toggle-background-color: var(--light-gray-000);
+  --side-bar-toggle-border-color: var(--border-color);
+  --side-bar-toggle-hover-background-color: var(--light-gray-100);
   --slider-track-empty-color: var(--light-gray-300);
-  // --slider-track-filled-color: var(--primary-color);
-  --slider-track-filled-color: var(--primary-color-300);
-  // --slider-thumb-color: var(--dark-gray-100);
-  --slider-thumb-color: var(--primary-color);
+  --slider-track-filled-color: var(--primary-color);
+  --slider-thumb-color: var(--light-gray-000);
+  --slider-thumb-border-color: var(--primary-color);
   --table-header-cell-background-color: var(--light-gray-100);
-  --table-zebra-stripe-color: var(--primary-color-100);
+  --table-row-highlight-color: var(--primary-color-100);
   --text-color: var(--dark-gray-400);
+  --toggle-slider-color: var(--light-gray-000);
+  --toggle-switch-active-background-color: var(--primary-color);
+  --toggle-switch-inactive-background-color: var(--light-gray-200);
+  --toggle-switch-text-color: var(--light-gray-100);
   --toggle-switch-text-color: var(--light-gray-100);
 }
 
@@ -155,11 +202,21 @@
   --border-color: var(--dark-gray-300);
   // --border-color: red;
   --box-shadow-color: var(--dark-box-shadow-color);
-  --content-background-color: var(--dark-gray-300);
-  --input-background-color: var(--dark-gray-200);
+  --codeblock-background-color: var(--dark-gray-400);
+  --content-background-color: var(--dark-gray-400);
+  --input-background-color: var(--dark-gray-300);
   --label-text-color: var(--light-gray-200);
+  --nav-bar-background-color: var(--dark-gray-400);
+  --nav-list-item-hover-background-color: var(--dark-gray-300);
+  --nav-list-item-selected-background-color: var(--primary-color-500);
   --section-background-color: var(--dark-gray-500);
+  --side-bar-background-color: var(--dark-gray-400);
+  --side-bar-toggle-background-color: var(--dark-gray-000);
+  --side-bar-toggle-hover-background-color: var(--dark-gray-100);
+  --slider-track-empty-color: var(--dark-gray-300);
+  // --side-bar-text-color: var(--text-color);
   --table-header-cell-background-color: var(--dark-gray-300);
-  --table-zebra-stripe-color: var(--primary-color-00);
+  --table-row-hightlight-color: var(--primary-color-700);
   --text-color: var(--light-gray-100);
+  --toggle-switch-inactive-background-color: var(--dark-gray-300);
 }

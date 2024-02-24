@@ -12,7 +12,24 @@
 .nav-bar, .sub-nav-bar {
   background-color: var(--nav-bar-background-color);
   color: var(--nav-bar-text-color);
+  display: flex;
+  flex-direction: row;
+  min-height: var(--nav-bar-min-height);
+}
 
+.nav-bar.transparent {
+  background-color: transparent;
+  text-shadow: 0px 0px 2px var(--box-shadow-color);
+
+  
+}
+
+.shadow {
+  box-shadow: var(--common-box-shadow);
+}
+
+.top-border {
+  border-top: var
 }
 
 .nav-bar {
@@ -23,6 +40,91 @@
 
 }
 
+.nav-list, .nav-list-wrapper, .logo-wrapper, .menu-wrapper, .side-bar-button-wrapper {
+  align-items: center;
+  display: flex;
+  padding: 0rem var(--nav-bar-element-padding);
+}
+
+.nav-list-wrapper {
+  flex-grow: 1;
+}
+
 .nav-list {
+  align-items: center;
+  // TODO: Remove debug colors
+  // background-color: lightblue;
+  display: flex;
+  // font-size: var(--nav-list-item-font-size);
+  font-weight: bold;
+  padding: 0 var(--nav-list-padding);
+  user-select: none;
+  width: 100%;
   
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0rem;
+    padding: 0rem;
+  }
+  
+  li {
+    // TODO: Remove debug colors
+    // background-color: red;
+    border-radius: var(--common-border-radius);
+    padding: var(--nav-list-item-padding);
+    transition: var(--common-transition);
+
+    &:hover {
+      background-color: var(--nav-list-item-hover-background-color);
+      cursor: pointer;
+    }
+
+    &.selected { 
+      background-color: var(--nav-list-item-selected-background-color);
+    }
+  }
+
+  // classes for alignment
+  &.right {
+    justify-content: flex-end;
+
+    li {
+      margin-left: var(--nav-list-item-margin);
+    }
+  }
+
+  &.center {
+
+    li {
+      margin: 0 calc(var(--nav-list-item-margin) / 2);
+    }
+  }
+
+  &.left {
+
+    li {
+      margin-left: var(--nav-list-item-margin);
+    }
+  }
+}
+
+.side-bar-button-wrapper {
+  // TODO: Remove debug colors
+  // background-color: red;
+}
+
+.logo-wrapper {
+  // TODO: Remove debug colors
+  // background-color: green;
+  flex-shrink: 0;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0rem;
+  }
+}
+
+.menu-wrapper {
+  // TODO: Remove debug colors
+  // background-color: yellow;
 }

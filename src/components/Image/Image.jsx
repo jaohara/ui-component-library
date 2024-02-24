@@ -4,10 +4,13 @@ import styles from "./Image.module.scss";
 
 // TODO: Implement this component
 
-const Image = () => {
+const Image = ({
+  caption,
+  src,
+}) => {
   return (
     <div
-      // className={styles.}
+      className={styles.wrapper}
     >
       <em>I'm a <strong>Image</strong> and I need to be implemented.</em>
     </div>

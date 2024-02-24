@@ -28,8 +28,8 @@
 
   th, td {
     padding: var(--table-cell-padding);
-    border-bottom: var(--common-border);
-    border-right: var(--common-border);
+    border-bottom: var(--common-border-size) solid var(--border-color);
+    border-right: var(--common-border-size) solid var(--border-color);
   }
 
   th:last-of-type, td:last-of-type {
@@ -42,5 +42,5 @@
 }
 
 .zebra-striping tr:not(thead tr):hover {
-  background-color: var(--table-zebra-stripe-color);
+  background-color: var(--table-row-hightlight-color);
 }

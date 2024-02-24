@@ -8,9 +8,11 @@ import React, {
 const ThemeContext = createContext(undefined);
 
 const ThemeContextProvider = ({ children }) => {
+  const [ hasHero, setHasHero ] = useState(false);
   // TODO: How do I want to implement this?
   const [ primaryColor, setPrimaryColor ] = useState();
   const [ theme, setTheme ] = useState('light');
+  const [ navBarIsFixed, setNavBarIsFixed ] = useState(false);
 
   const saveThemeInLocalStorage = (newTheme) => localStorage.setItem('theme', newTheme);
 
@@ -43,6 +45,10 @@ const ThemeContextProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
+        hasHero,
+        navBarIsFixed,
+        setHasHero,
+        setNavBarIsFixed,
         theme,
         toggleTheme,
       }}
@@ -54,18 +60,35 @@ const ThemeContextProvider = ({ children }) => {
 
 // TODO: This might be useless; you could just apply `theme` as a className to your 
 //  root DOM node in `App.jsx`.
-const DarkModeWrapper = ({ children }) => {
-  const { theme } = useContext(ThemeContext);
+const ThemeWrapper = ({ children }) => {
+  const [ useFixedNavClass, setUseFixedNavClass ] = useState(false);
+
+  const {
+    hasHero,
+    navBarIsFixed, 
+    theme,
+  } = useContext(ThemeContext);
+
+  useEffect(() => {
+    setUseFixedNavClass(navBarIsFixed && !hasHero);
+  }, [hasHero, navBarIsFixed])
+
+  // const useFixedNavClass = navBarIsFixed && !hasHero;
+
+  const themeWrapperClassNames = `
+    ${theme}
+    ${useFixedNavClass ? "fixed-nav" : ""}
+  `;
 
   return (
-    <div className={theme}>
+    <div className={themeWrapperClassNames}>
       {children}
     </div>
   )
 };
 
 export { 
-  DarkModeWrapper,
+  ThemeWrapper,
   ThemeContext, 
   ThemeContextProvider,
 };

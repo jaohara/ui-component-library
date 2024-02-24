@@ -1,0 +1,31 @@
+.section {
+  align-items: center;
+  background-color: var(--section-background-color);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-vertical-padding) 0rem;
+
+  &.no-padding {
+    padding: 0rem;
+  }
+
+  &.no-padding-bottom {
+    padding-bottom: 0rem;
+  }
+
+  &.no-padding-top {
+    padding-top: 0rem;
+  }
+
+  &.more-padding {
+    padding: calc(var(--section-vertical-padding) * 2) 0rem;
+  }
+
+  &.hero {
+    background-color: var(--hero-background-color);
+    height: 100vh;
+    box-shadow: inset 0px 0px 50px var(--box-shadow-color);
+  }
+}

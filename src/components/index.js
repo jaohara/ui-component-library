@@ -21,6 +21,7 @@ import RadioButton from './RadioButton/RadioButton';
 import RadioButtonGroup from './RadioButtonGroup/RadioButtonGroup';
 import Section from './Section/Section';
 import Select from './Select/Select';
+import SideBar from './SideBar/SideBar';
 import Slider from './Slider/Slider';
 import Table from './Table/Table';
 import TextArea from './TextArea/TextArea';
@@ -48,6 +49,7 @@ export {
   RadioButtonGroup,
   Section,
   Select,
+  SideBar,
   Slider,
   SubNavBar,
   Table,

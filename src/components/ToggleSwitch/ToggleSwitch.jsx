@@ -54,9 +54,12 @@ const ToggleSwitch = ({
       onClick={(e) => handleClick(e)}
       role='switch'
     >
-      {
+      {/* {
         value ? parsedLabels[0] : parsedLabels[1]
-      }
+      } */}
+      <span
+        className={styles["toggle-slider"]}
+      ></span>
     </button>
   );
 }

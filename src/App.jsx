@@ -7,7 +7,7 @@ import './styles/variables.scss';
 import './styles/base.scss';
 
 import { 
-  DarkModeWrapper,
+  ThemeWrapper,
   ThemeContext 
 } from './contexts/ThemeContext';
 
@@ -32,6 +32,7 @@ import {
   RadioButtonGroup,
   Section,
   Select,
+  SideBar,
   Slider,
   Table,
   TextArea,
@@ -40,41 +41,18 @@ import {
 } from './components';
 import CodeBlock from './components/CodeBlock/CodeBlock';
 
-const selectListOptions = ["Apple", "Banana", "Carrot", "Daikon"];
-
-const tableHeaders = [
-  { key: "name", label: "Name", isRowHeader: true },
-  { key: "age", label: "Age" },
-  { key: "color", label: "Favorite Color?" },
-  { key: "food", label: "Favorite Food?" },
-];
-
-const tableData = [
-  { name: "John", age: 32, color: "Blue", food: "Lasagna" },
-  {"name": "Alice", "age": 28, "color": "Green", "food": "Pizza"},
-  {"name": "Bob", "age": 34, "color": "Red", "food": "Sushi"},
-  {"name": "Charlie", "age": 25, "color": "Yellow", "food": "Burger"},
-  {"name": "Diana", "age": 30, "color": "Purple", "food": "Salad"},
-  {"name": "Evan", "age": 22, "color": "Orange", "food": "Tacos"},
-  {"name": "Fiona", "age": 27, "color": "Pink", "food": "Pasta"},
-  {"name": "George", "age": 35, "color": "Black", "food": "Curry"},
-  {"name": "Hannah", "age": 29, "color": "White", "food": "Sandwich"},
-  {"name": "Ivan", "age": 31, "color": "Gray", "food": "Steak"},
-];
-
-const tableCaption = "An example table with a caption.";
-
-const listItems = selectListOptions;
-
-const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cupiditate quo, blanditiis deserunt expedita officiis provident repudiandae autem ipsa tempora voluptas aliquid quis ratione deleniti ducimus inventore minima. Impedit, doloremque."
+import { LIBRARY_NAME } from './globals';
 
 function App() {
   const [ buttonClickCount, setButtonClickCount ] = useState(0);
   const [ checkboxValue, setCheckboxValue ] = useState(false);
+  const [ leftSideBarIsVisible, setLeftSideBarIsVisible ] = useState(false);
   const [ loadingSpinnerToggleValue, setLoadingSpinnerToggleValue ] = useState(false);
   const [ numberInputValue, setNumberInputValue ] = useState(0);
   const [ passwordInputValue, setPasswordInputValue ] = useState("");
   const [ selectInputValue, setSelectInputValue ] = useState("");
+  const [ sliderValue, setSliderValue ] = useState(20);
+  const [ rightSideBarIsVisible, setRightSideBarIsVisible ] = useState(false);
   const [ textInputValue, setTextInputValue ] = useState("");
   const [ toggleValue, setToggleValue ] = useState(false);
 
@@ -85,6 +63,7 @@ function App() {
     passwordInputValue,
     textInputValue,
     selectInputValue,
+    sliderValue,
     toggleValue,
   }
 
@@ -97,32 +76,51 @@ function App() {
 
   const incrementCounter = () => setButtonClickCount((current) => current + 1);
 
+  // NavBar elements
+  const logoElement = (<h1>{LIBRARY_NAME}</h1>);
+
+  const menuElement = (
+    <ToggleSwitch
+      label='Dark Mode?'
+      onClick={toggleTheme}
+      value={isDarkMode}
+    />
+  );
+
+  const toggleLeftSidebar = () => setLeftSideBarIsVisible(current => !current);
+  const toggleRightSidebar = () => setRightSideBarIsVisible(current => !current);
+
   return (
-    <DarkModeWrapper>
-      <Section 
+    <ThemeWrapper>
+
+      {/* Side bars */}
+      <SideBar
+        isVisible={leftSideBarIsVisible}
+        toggle={toggleLeftSidebar}
+      />
+      <SideBar
+        isVisible={rightSideBarIsVisible}
+        right
+        toggle={toggleRightSidebar}
+      />
+
+      <NavBar
+        fixed
+        logoElement={logoElement}
+        menuElement={menuElement}
+        navItems={navItems}
+        toggleLeftSidebar={toggleLeftSidebar}
+        toggleRightSidebar={toggleRightSidebar}
         // transparent
+      />
+
+      <Section
+        hero
       >
-        <ContentGroup opaque={false}>
-          <Content
-            opaque={false}
-            verticallyCentered
-          >
-            <h1>Inertia UI</h1>
-          </Content>
-          <Content 
-            opaque={false}
-            rightAligned
-            verticallyCentered
-          >
-            <ToggleSwitch
-              label='Dark Mode?'
-              onClick={toggleTheme}
-              // setValue={setDarkModeToggleValue}
-              // value={darkModeToggleValue}
-              value={isDarkMode}
-            />
-          </Content>
-        </ContentGroup>
+        <p>Hero Section</p>
+      </Section>
+
+      <Section>
         <Content opaque={false}>
           <h1>Inputs</h1>
           <ContentGroup>
@@ -160,7 +158,12 @@ function App() {
                 value={toggleValue}
               />
 
-              <Slider/>
+              <Slider
+                setValue={setSliderValue}
+                value={sliderValue}
+                min={0}
+                max={100}
+              />
 
               <RadioButtonGroup />
 
@@ -231,26 +234,57 @@ function App() {
               <h3>Toggle Spinner</h3>
               <ToggleSwitch 
                 setValue={setLoadingSpinnerToggleValue}
-                value={loadingSpinnerToggleValue}
+                value={!loadingSpinnerToggleValue}
               />
             </Content>
             
             <Content loading={loadingSpinnerToggleValue}>
               {loadingSpinnerData}
-              {/* {
-                loadingSpinnerToggleValue ? (
-                  loadingSpinnerData
-                ) : (  
-                  <LoadingSpinner />
-                )
-              } */}
             </Content>
           </ContentGroup>
           
         </Content>
       </Section>
-    </DarkModeWrapper>
+    </ThemeWrapper>
   )
 }
+
+// DEFAULT VALUES/CONSTANTS
+const selectListOptions = ["Apple", "Banana", "Carrot", "Daikon"];
+
+const tableHeaders = [
+  { key: "name", label: "Name", isRowHeader: true },
+  { key: "age", label: "Age" },
+  { key: "color", label: "Favorite Color?" },
+  { key: "food", label: "Favorite Food?" },
+];
+
+const tableData = [
+  { name: "John", age: 32, color: "Blue", food: "Lasagna" },
+  {"name": "Alice", "age": 28, "color": "Green", "food": "Pizza"},
+  {"name": "Bob", "age": 34, "color": "Red", "food": "Sushi"},
+  {"name": "Charlie", "age": 25, "color": "Yellow", "food": "Burger"},
+  {"name": "Diana", "age": 30, "color": "Purple", "food": "Salad"},
+  {"name": "Evan", "age": 22, "color": "Orange", "food": "Tacos"},
+  {"name": "Fiona", "age": 27, "color": "Pink", "food": "Pasta"},
+  {"name": "George", "age": 35, "color": "Black", "food": "Curry"},
+  {"name": "Hannah", "age": 29, "color": "White", "food": "Sandwich"},
+  {"name": "Ivan", "age": 31, "color": "Gray", "food": "Steak"},
+];
+
+const tableCaption = "An example table with a caption.";
+
+const listItems = selectListOptions;
+
+const navItemAction = () => console.log(`nav item clicked`);
+
+const navItems = [
+  { action: navItemAction, label: "Home", selected: true },
+  { action: navItemAction, label: "About" },
+  { action: navItemAction, label: "Contact" },
+];
+
+const loadingSpinnerData = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cupiditate quo, blanditiis deserunt expedita officiis provident repudiandae autem ipsa tempora voluptas aliquid quis ratione deleniti ducimus inventore minima. Impedit, doloremque."
+
 
 export default App;

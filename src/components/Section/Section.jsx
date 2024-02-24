@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {
+  useContext,
+  useEffect,
+} from 'react';
 
-import "./Section.scss";
+import styles from "./Section.module.scss";
+
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const bgShadeTypes = ["dark", "normal", "light", "lighter", "darker", "transparent"];
 
@@ -20,20 +25,13 @@ const bgShadeOpacities = {
   "darker": "cc",
 };
 
-// maps int indexes to css class names for different vertical padding values
-const verticalPaddingClassNames = [
-  "no-padding",
-  "default-padding",
-  "more-padding",
-];
-
 const buildHexColorString = (hexColorString, opacityString = "normal") => {
   const color = hexColorString.includes("#") ? hexColorString : `#${hexColorString}`;
   const alpha = Object.keys(bgShadeOpacities).includes(opacityString) 
     ? bgShadeOpacities[opacityString]
     : bgShadeOpacities["normal"]; 
 
-  return `${color}${alpha}`
+  return `${color}${alpha}`;
 };
 
 const Section = ({
@@ -42,32 +40,31 @@ const Section = ({
   // hex color to tint background
   bgTint,
   children,
-  className = "",
+  className,
+  hero,
+  morePadding = false,
   noPadding = false,
   noPaddingBottom = false,
   noPaddingTop = false,
   transparent = false,
-  // one of these int values: 0 (none), 1 (default), 2 (double)
-  verticalPadding = 1,
 }) => {
-  // safe string for the type of shade on this bg
-  let parsedBgShade = bgShadeTypes.includes(bgShade) ? bgShade : "normal";
-  let verticalPaddingClassName = 
-    verticalPadding < verticalPaddingClassNames.length && verticalPadding > 0 
-      ? verticalPaddingClassNames[verticalPadding] 
-      : verticalPaddingClassNames[1];
+  const {
+    setHasHero,
+  } = useContext(ThemeContext);
 
+  useEffect(() => {
+    setHasHero(hero);
+  }, [hero])
 
-  //temporarily removed:
-  // ${parsedBgShade}-shade
   const sectionClassNames = `
-    section
-    ${verticalPaddingClassName}
-    ${noPadding ? "no-padding" : ""}
-    ${noPaddingBottom ? "no-padding-bottom" : ""}
-    ${noPaddingTop ? "no-padding-top" : ""}
-    ${transparent ? "transparent-bg" : ""}
-    ${className}
+    ${styles.section}
+    ${hero ? `${styles.hero} app-hero` : ""}
+    ${morePadding ? styles["more-padding"] : ""}
+    ${noPadding ? styles["no-padding"] : ""}
+    ${noPaddingBottom ? styles["no-padding-bottom"] : ""}
+    ${noPaddingTop ? styles["no-padding-top"] : ""}
+    ${transparent ? styles["transparent-bg"] : ""}
+    ${className ? className : ""}
   `;
 
   const bgColorString = bgTint ? buildHexColorString(bgTint, bgShade) : null;

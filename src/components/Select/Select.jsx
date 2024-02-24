@@ -12,6 +12,16 @@ const Select = ({
   setValue = () => {},
   value = "",
 }) => {
+  /*
+    Plans for Select:
+
+    - Remove default input dropdown arrow and use own implementation
+    - Override default system dropdown UI and create custom appearance
+      - Make dropdown know to go upwards if the list would go off the bottom
+        of the page
+          - What if it would go off the edge of both?
+  */
+
   const getClassNames = () => `
     select-input
     common-input

@@ -32,9 +32,18 @@ body {
   margin: 0rem;
 }
 
+.fixed-nav:not(.fixed-nav:has(.app-hero)) {
+  padding-top: var(--nav-bar-min-height);
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0rem;
   margin-bottom: var(--common-margin);
+}
+
+a {
+  // TODO: How does this work for contrast/accessibility?
+  color: var(--primary-color);
 }
 
 label:not(.checkbox-label, .radio-button-label) {
@@ -44,6 +53,7 @@ label:not(.checkbox-label, .radio-button-label) {
   line-height: var(--label-font-size);
   margin-bottom: .25rem;
   padding-left: .2rem;
+  user-select: none;
 }
 
 // used to wrap inputs with their labels
@@ -53,8 +63,6 @@ label:not(.checkbox-label, .radio-button-label) {
   margin-bottom: var(--common-margin);
   max-width: var(--input-box-max-width);
 }
-
-
 
 // .common-button, .common-input, textarea {
 .common-input, textarea {

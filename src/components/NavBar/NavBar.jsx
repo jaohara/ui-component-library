@@ -1,24 +1,21 @@
-import React from 'react';
+import React, {
+  useEffect,
+  useContext,
+} from 'react';
 
 import styles from "./NavBar.module.scss";
 
 import Button from '../Button/Button';
 
 import isAFunction from '../../utils/isAFunction';
+import navItemsAreValid from '../../utils/navItemsAreValid';
+
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 import {
   NAVBAR_DEFAULT_NAV_ALIGNMENT,
-  SIDEBAR_DEFAULT_SHADOW,
+  NAVBAR_DEFAULT_SHADOW,
 } from '../../globals';
-
-// TODO: Test this when you implement navItems
-const navItemsAreValid = (navItems) => {
-  if (!navItems || Array.isArray(navItems)) return false;
-
-  for (let i = 0; i < navItems.length; i++) {
-    if (!navItems[i].label || !navItems[i].action) return false; 
-  }
-}
 
 const navListAlignments = ["right", "center", "left"];
 
@@ -31,11 +28,18 @@ export const NavBar = ({
   navItems,
   navListAlignment = NAVBAR_DEFAULT_NAV_ALIGNMENT, 
   noMainNavBar = false,
-  shadow = SIDEBAR_DEFAULT_SHADOW,
+  shadow = NAVBAR_DEFAULT_SHADOW,
+  transparent = false,
   toggleLeftSidebar,
   toggleRightSidebar,
   topBorder = false, // whether to have a cosmetic top border
 }) => {
+  const { setNavBarIsFixed } = useContext(ThemeContext);
+
+  useEffect(() => {
+    setNavBarIsFixed(fixed);
+  }, [fixed]);
+
   /*
     NavBar should be able to have stacked child components, optionally allowing
     for multiple page-width bars to be stacked on top. See the npm site for an 
@@ -43,20 +47,21 @@ export const NavBar = ({
     - How will I handle this? Is it a "NavBarContainer" class that contains these
       "NavBar" elements, or should I create a "NavBarRow" class?
 
-    There should also be an option for a "topBorder", which could either be a 
+    There should be an option for a "topBorder", which could either be a 
     solid-colored stripe for branding or a gradient. Again, the npm site does this
     with a gradient.
   */
 
-  const navBarClassNames = `
-    ${styles["nav-bar"]}
-    ${fixed ? styles["fixed"] : ""}
-    ${topBorder ? styles["top-border"] : ""}
-  `;
-
   const navBarGroupClassNames = `
     ${styles["nav-bar-group"]}
+    ${fixed ? styles["fixed"] : ""}
     ${shadow ? styles["shadow"] : ""}
+    ${topBorder ? styles["top-border"] : ""}
+   `;
+    
+    const navBarClassNames = `
+    ${styles["nav-bar"]}
+    ${transparent ? `${styles["transparent"]} transparent-nav-bar` : ""}
   `;
 
   const parsedBgColor = (() => {
@@ -66,22 +71,25 @@ export const NavBar = ({
     return null;
   })();
 
+  // TODO: Make a function to build these buttons that reduces code reuse
   const leftSidebarButton = isAFunction(toggleLeftSidebar) ? (
     <div className={styles["side-bar-button-wrapper"]}>
       <Button 
+        noMargin
         onClick={toggleLeftSidebar}
-        sidebarToggle
+        sideBarToggle
       >
         Left
       </Button>
     </div>
   ) : (<></>);
-
+  
   const rightSidebarButton = isAFunction(toggleRightSidebar) ? (
     <div className={styles["side-bar-button-wrapper"]}>
       <Button 
+        noMargin
         onClick={toggleRightSidebar}
-        sidebarToggle
+        sideBarToggle
       >
         Right
       </Button>
@@ -90,7 +98,13 @@ export const NavBar = ({
 
   const parsedLogoElement = (() => {
     // TODO: expand upon this - what other checks need to be done?
-    return logoElement;
+    return (
+      <div
+        className={styles["logo-wrapper"]}
+      >
+        {logoElement}
+      </div>
+    );
   })();
 
   const navElement = (() => {
@@ -101,13 +115,16 @@ export const NavBar = ({
 
     const navListClassNames = `
       ${styles["nav-list"]}
-      ${alignment}
+      ${styles[alignment]}
     `;
 
     // TODO: Attach the nav action to the navListItems
     // TODO: How do I handle "action" here? Just an onClick?
     const navListItems = navItems.map((navItem) => (
-      <li>
+      <li
+        className={navItem.selected ? styles["selected"] : ""}
+        onClick={navItem.action}
+      >
         {navItem.label}
       </li>
     ));
@@ -121,10 +138,6 @@ export const NavBar = ({
     );
   })();
 
-  // const subNavBars = (() => {
-
-  // })();
-
   const subNavBars = React.Children.map(children, (child) => {
     if (child.type = SubNavBar) {
       return child;
@@ -137,7 +150,13 @@ export const NavBar = ({
 
   const parsedMenuElement = (() => {
     // TODO: expand upon this - what other checks need to be done?
-    return menuElement;
+    return (
+      <div
+        className={styles["menu-wrapper"]}
+      >
+        {menuElement}
+      </div>
+    )
   })();
 
   const mainNavBar = (
@@ -147,6 +166,7 @@ export const NavBar = ({
     >
       {leftSidebarButton}
       {parsedLogoElement}
+      {/* <div className={styles["nav-list-wrapper"]}>{navElement}</div> */}
       {navElement}
       {parsedMenuElement}
       {rightSidebarButton}
@@ -182,6 +202,6 @@ export const SubNavBar = ({
     >
       I'm a <strong>SubNavBar</strong> and I need to be implemented.
     </div>  
-  )
+  );
 };
  

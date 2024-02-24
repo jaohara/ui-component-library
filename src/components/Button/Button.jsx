@@ -45,11 +45,12 @@ const Button = React.forwardRef(({
   disabled,
   loading,
   isFormSubmit = false,
+  noMargin,
   onClick,
   onMouseEnter = () => {},
   onMouseLeave = () => {},
   iconType = "none",
-  sidebarToggle, // TODO: Make use of this for sidebar button styling
+  sideBarToggle, // TODO: Make use of this for sidebar button styling
 }, ref) => {
   const buttonIcons = {
     "back": (<TbArrowBack />),
@@ -88,6 +89,14 @@ const Button = React.forwardRef(({
 
   const availableIcons = Object.keys(buttonIcons);
 
+  const buttonClassNames = `
+    common-button
+    ${styles["app-button"]} 
+    ${noMargin ? styles["no-margin"] : ""}
+    ${sideBarToggle ? styles["side-bar-toggle"] : ""}
+    ${className} 
+  `;
+
   const getButtonIcon = () => {
     if (!availableIcons.includes(iconType)) {
       return;
@@ -108,10 +117,24 @@ const Button = React.forwardRef(({
     );
   };
 
+  const buttonContent = (() => {
+    if (sideBarToggle) {
+      // TODO: Revisit hardcoded menu icon
+      return (<TbMenu2 />);
+    }
+
+    return (
+      <>
+        {children}
+        {getButtonIcon()}
+      </>
+    );
+  })();
+
   return (
     <button 
       disabled={disabled}
-      className={`${className} ${styles["app-button"]} common-button`}
+      className={buttonClassNames}
       // className={`${className} .app-button`}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
@@ -119,8 +142,9 @@ const Button = React.forwardRef(({
       ref={ref}
       type={isFormSubmit ? "submit" : "button"}
     >
-      {children}
-      {getButtonIcon()}
+      {/* {children}
+      {getButtonIcon()} */}
+      {buttonContent}
     </button>
   );
 });

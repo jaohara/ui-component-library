@@ -54,6 +54,10 @@
   }
 }
 
+.no-margin {
+  margin: 0rem;  
+}
+
 .button-icon-wrapper {
   align-items: center;
   display: flex;
@@ -69,5 +73,17 @@
 
   &.waiting, &.loading {
     animation: spin 1s linear infinite;
+  }
+}
+
+.side-bar-toggle {
+  background-color: var(--side-bar-toggle-background-color);
+  border-radius: var(--common-border-radius);
+  // border-color: var(--side-bar-toggle-border-color);
+  border-color: var(--border-color);
+  padding: var(--side-bar-toggle-padding);
+
+  &:hover {
+    background-color: var(--side-bar-toggle-hover-background-color) !important;
   }
 }
